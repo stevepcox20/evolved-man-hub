@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>End of Defensiveness &middot; Evolved Man Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #23262B;
+    --ink-light: #4A5568;
+    --ink-faint: #ECEAE6;
+    --ink-tint: #DFDCD6;
+    --amber: #C9722E;
+    --amber-bright: #E08D3C;
+    --amber-faint: #FBEEE0;
+    --ground: #EDEAE2;
+    --surface: #FCFBF9;
+    --surface-2: #F3F1EC;
+    --text: #211F1C;
+    --text-muted: #6B655D;
+    --border: rgba(35,38,43,0.13);
+    --border-strong: rgba(35,38,43,0.26);
+    --red-faint: rgba(200,50,50,0.07);
+    --red-border: rgba(200,50,50,0.2);
+    --green-faint: rgba(30,140,80,0.08);
+    --green-border: rgba(30,140,80,0.2);
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ground);
+    color: var(--text);
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .page-wrap { display: grid; grid-template-columns: 232px 1fr; min-height: 100vh; }
+
+  .sidebar {
+    position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    background: var(--surface); border-right: 1px solid var(--border);
+    padding: 24px 0; display: flex; flex-direction: column;
+    scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  }
+  .sidebar-logo { padding: 0 18px 20px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
+  .sidebar-logo .belt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); font-weight: 600; display: block; margin-bottom: 4px; }
+  .sidebar-logo .title { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+  .sidebar-logo .back-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 12px; color: var(--ink); text-decoration: none; font-weight: 600; background: var(--ink-faint); border: 1px solid var(--border-strong); border-radius: 6px; padding: 7px 12px; }
+  .sidebar-logo .back-link:hover { background: var(--ink-tint); }
+  .sidebar-nav { list-style: none; padding: 0; }
+  .sidebar-nav li a { display: block; padding: 7px 18px; font-size: 12px; font-weight: 500; color: var(--text-muted); text-decoration: none; border-left: 2px solid transparent; transition: color 0.12s, border-color 0.12s, background 0.12s; line-height: 1.4; }
+  .sidebar-nav li a:hover { color: var(--ink); background: var(--ink-tint); border-left-color: var(--amber); }
+  .nav-section { display: flex; align-items: center; gap: 8px; margin: 18px 12px 8px; padding: 10px 12px; background: var(--ink); color: #fff; border-radius: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; }
+
+  .main { min-width: 0; }
+
+  .hero { background: var(--ink); padding: 60px 52px 52px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; bottom: -80px; right: -80px; width: 360px; height: 360px; border-radius: 50%; background: rgba(255,255,255,0.03); pointer-events: none; }
+  .hero-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber-bright); font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .hero-eyebrow::after { content: ''; display: block; height: 1px; width: 36px; background: var(--amber-bright); opacity: 0.6; }
+  .hero h1 { font-size: clamp(32px, 4.5vw, 50px); font-weight: 800; line-height: 1.1; color: #ffffff; margin-bottom: 18px; letter-spacing: -0.02em; }
+  .hero h1 em { font-style: italic; color: var(--amber-bright); font-weight: 700; }
+  .hero-desc { font-size: 15px; color: rgba(255,255,255,0.72); max-width: 560px; line-height: 1.7; margin-bottom: 36px; }
+  .hero-stats { display: flex; gap: 36px; flex-wrap: wrap; }
+  .hero-stat { display: flex; flex-direction: column; gap: 3px; }
+  .hero-stat .num { font-size: 28px; font-weight: 800; color: var(--amber-bright); line-height: 1; letter-spacing: -0.02em; }
+  .hero-stat .label { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; }
+
+  .section { padding: 48px 52px; border-bottom: 1px solid var(--border); }
+  .section-header { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 32px; }
+  .section-num { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--amber); letter-spacing: 0.1em; margin-top: 7px; flex-shrink: 0; width: 26px; }
+  .section-title { font-size: 26px; font-weight: 800; color: var(--ink); line-height: 1.2; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .section-subtitle { font-size: 13px; color: var(--text-muted); }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px 28px; margin-bottom: 16px; }
+  .card h3 { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+  .card h4 { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink); margin-bottom: 8px; margin-top: 20px; opacity: 0.7; }
+  .card h4:first-child { margin-top: 0; }
+  .card p { font-size: 14px; line-height: 1.7; color: var(--text); margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .card ul, .card ol { padding-left: 20px; margin-bottom: 10px; }
+  .card li { font-size: 14px; line-height: 1.65; color: var(--text); margin-bottom: 5px; }
+  .card strong { font-weight: 700; color: var(--ink); }
+  .card em { color: var(--amber); font-style: italic; }
+  .card-accent { background: var(--ink-faint); border-color: var(--border-strong); border-left: 3px solid var(--amber); }
+  .card-dark { background: var(--ink); border-color: transparent; }
+  .card-dark h3 { color: #fff; }
+  .card-dark h4 { color: var(--amber-bright); opacity: 1; }
+  .card-dark p, .card-dark li { color: rgba(255,255,255,0.85); }
+  .card-dark strong { color: #fff; }
+
+  .quote-block { background: var(--ink-faint); border-left: 3px solid var(--ink); padding: 18px 22px; margin-bottom: 14px; border-radius: 0 6px 6px 0; }
+  .quote-block p { font-size: 16px; font-weight: 600; font-style: italic; color: var(--ink); line-height: 1.55; margin: 0; }
+
+  .callout { background: var(--amber-faint); border: 1px solid rgba(201,114,46,0.22); border-radius: 8px; padding: 16px 20px; margin-bottom: 16px; }
+  .callout p { font-size: 14px; color: var(--text); margin: 0; line-height: 1.6; }
+  .callout strong { color: var(--amber); font-weight: 700; }
+  .callout-ink { background: var(--ink-faint); border-color: var(--border-strong); }
+  .callout-ink p { color: var(--ink); font-weight: 500; }
+  .callout-ink strong { color: var(--ink); }
+
+  .ref-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; font-size: 13.5px; }
+  .ref-table th { background: var(--ink); color: #fff; text-align: left; padding: 11px 16px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 600; }
+  .ref-table td { padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; }
+  .ref-table tr:last-child td { border-bottom: none; }
+  .ref-table tr:nth-child(even) td { background: var(--ink-faint); }
+  .ref-table td strong { color: var(--ink); }
+
+  .diagram-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 28px; margin-bottom: 20px; }
+  .diagram-title { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; opacity: 0.7; }
+  .diagram-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+  .pillar-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px; border-top: 3px solid var(--amber); }
+  .pillar-item .pillar-name { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .pillar-item .pillar-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+  .reading-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+  .reading-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px; border-top: 3px solid var(--ink-light); }
+  .reading-item .r-title { font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 8px; line-height: 1.3; }
+  .reading-item .r-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+
+  .quiz-intro { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+  .quiz-q { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 22px 26px; margin-bottom: 16px; }
+  .quiz-q .q-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); font-weight: 700; display: block; margin-bottom: 8px; }
+  .quiz-q .q-text { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 14px; line-height: 1.5; }
+  .quiz-q .options { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-q .opt { text-align: left; background: var(--ground); border: 1px solid var(--border); border-radius: 6px; padding: 11px 15px; font-family: 'Figtree', sans-serif; font-size: 13.5px; line-height: 1.5; color: var(--text); cursor: pointer; transition: border-color 0.12s, background 0.12s; }
+  .quiz-q .opt:hover { border-color: var(--ink-light); background: var(--ink-faint); }
+  .quiz-q .opt.correct { background: var(--green-faint); border-color: #2ba84a; color: #1a5030; font-weight: 600; }
+  .quiz-q .opt.incorrect { background: var(--red-faint); border-color: #c03030; color: #7a2020; }
+  .quiz-q .opt:disabled { cursor: default; }
+  .quiz-q .q-result { margin-top: 12px; font-size: 13px; line-height: 1.6; display: none; padding: 12px 16px; border-radius: 6px; }
+  .quiz-q .q-result.show { display: block; }
+  .quiz-q .q-result.right { background: var(--green-faint); border: 1px solid var(--green-border); color: #1a5030; }
+  .quiz-q .q-result.wrong { background: var(--red-faint); border: 1px solid var(--red-border); color: #7a2020; }
+
+  .site-footer { background: var(--surface); padding: 24px 52px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .site-footer p { font-size: 12px; color: var(--text-muted); }
+  .site-footer a { font-size: 12px; color: var(--amber); text-decoration: none; font-weight: 600; }
+  .site-footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 860px) {
+    .page-wrap { grid-template-columns: 1fr; }
+    .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+    .hero, .section, .site-footer { padding-left: 22px; padding-right: 22px; }
+    .pillars-grid, .reading-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="belt">Evolved Man Hub &middot; Nick Matiash</span>
+      <span class="title">End of Defensiveness</span>
+      <a href="index.html" class="back-link">&#8592; Evolved Man Hub</a>
+      <a href="https://stevepcox20.github.io/bmr-learning-hub/" class="back-link" style="margin-top:6px;">&#8592; Learning Hub home</a>
+    </div>
+    <span class="nav-section">On this page</span>
+    <ul class="sidebar-nav">
+      <li><a href="#protocol">The Protocol</a></li>
+      <li><a href="#s1">The Core Reframe</a></li>
+      <li><a href="#s2">The Diagnostic Question</a></li>
+      <li><a href="#s3">The Frankl Gap</a></li>
+      <li><a href="#s4">Outside the Moment</a></li>
+      <li><a href="#s5">Inside the Moment</a></li>
+      <li><a href="#s6">The Deeper Layer</a></li>
+      <li><a href="#s7">Practical Tools From Q+A</a></li>
+      <li><a href="#s8">Recommended Reading</a></li>
+      <li><a href="#quiz">Comprehension check</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+
+    <header class="hero">
+      <div class="hero-eyebrow">Evolved Man Society &middot; Masterclass &middot; 2025-11-14</div>
+      <h1>End of <em>Defensiveness</em></h1>
+      <p class="hero-desc">A live masterclass from Nick Matiash (The Evolved Man): why defensiveness can't be eliminated, only regulated, the one question that catches it before it fires, and the outside-the-moment work that makes in-the-moment control possible.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="num">8</span><span class="label">Sections</span></div>
+        <div class="hero-stat"><span class="num">12</span><span class="label">Quiz questions</span></div>
+        <div class="hero-stat"><span class="num">71</span><span class="label">Minutes, incl. live Q+A</span></div>
+      </div>
+    </header>
+
+    <!-- PROTOCOL -->
+    <section class="section" id="protocol">
+      <div class="section-header">
+        <div class="section-num">&#9679;</div>
+        <div>
+          <h2 class="section-title">The Protocol, Step By Step</h2>
+          <p class="section-subtitle">Everything below in one sequence. Read the full breakdown in Sections 1&#8211;8 for the why behind each step.</p>
+        </div>
+      </div>
+
+      <div class="card card-accent">
+        <h3>Ongoing &mdash; every week, not just when tension hits</h3>
+        <p>This is the work that determines whether the in-the-moment steps below are even reachable. Skip this and step 2 onward stays theoretical.</p>
+        <ol>
+          <li><strong>Meditation</strong> &mdash; ~10 minutes, most days. Insight Timer if starting from zero.</li>
+          <li><strong>Exercise</strong> &mdash; consistency over intensity. Steps, bodyweight work, whatever's sustainable.</li>
+          <li><strong>Nutrition</strong> &mdash; optimise, don't perfect. Scale back the worst patterns.</li>
+          <li><strong>Sleep</strong> &mdash; protect quality and quantity where possible.</li>
+          <li><strong>Journaling</strong> &mdash; three prompts, daily or most days: what am I grateful for from the last 24h, what's weighing on me right now (no need to solve it), what three things would make today a success.</li>
+        </ol>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title">In the moment &mdash; when the defensive tingle shows up</div>
+        <div class="timeline-phases">
+          <div class="phase-item">
+            <div class="phase-dot">1</div>
+            <div class="phase-name">Notice it</div>
+            <div class="phase-sub">Catch the tingle in the body before it turns into a response.</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">2</div>
+            <div class="phase-name">Ask the question</div>
+            <div class="phase-sub">"What did I just hear versus what was actually said?" Name the gap.</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">3</div>
+            <div class="phase-name">Two breaths</div>
+            <div class="phase-sub">Trained in advance, not improvised. Widens the stimulus-response gap.</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">4</div>
+            <div class="phase-name">Sit with it</div>
+            <div class="phase-sub">Let the uncomfortable feeling be there without needing to escape it.</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">5</div>
+            <div class="phase-name">Choose the response</div>
+            <div class="phase-sub">If it's still too much: "let's take five," stated out loud, not silent withdrawal.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>If a specific pattern keeps showing up</h3>
+        <ul>
+          <li><strong>You over-explain when defensive</strong> &rarr; agree a safe word with her in advance (Section 7).</li>
+          <li><strong>You shut down when several things get raised at once</strong> &rarr; agree to address one topic at a time (Section 7).</li>
+          <li><strong>One of you is avoidant, the other anxious about the distance</strong> &rarr; agree a 24-hour re-engagement window, set outside of tense moments (Section 7).</li>
+          <li><strong>It keeps coming back to the same feeling underneath</strong> (shame, guilt, fear of not being enough) &mdash; that's identity work, not a tactic. See Section 6.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 1 -->
+    <section class="section" id="s1">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div>
+          <h2 class="section-title">The Core Reframe</h2>
+          <p class="section-subtitle">You don't get rid of defensiveness. You learn to cope with and control it.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>His central move, made early and returned to throughout: <strong>defensiveness cannot be removed from a person.</strong> It isn't a flaw to excise, it's a reflex you don't get to switch off, only choose your response to. This directly counters the message he says wives typically send ("just stop being defensive") &mdash; well-intentioned, but literally impossible to act on.</p>
+        <p><strong>Conquering defensiveness is about coping and controlling it. It is not about getting rid of it completely.</strong> The goal is catching it and choosing your response, not achieving a state where it never shows up again.</p>
+        <p>If she critiques the parenting, the laundry, or getting home late, the body may still cook up the same defensive "cocktail" &mdash; that's human, not a character flaw. What matters is what happens next: whether a harsh response fires out automatically, or gets caught and chosen. <strong>Self-control is where the money is made</strong> &mdash; it's the one variable actually inside a man's control in the exchange.</p>
+      </div>
+
+      <div class="callout-ink callout">
+        <p><strong>The framing device for the whole session:</strong> he opens with Will Hunting (Goodwill Hunting) &mdash; intellect and debate used as armor against the question "am I enough?" &mdash; and returns to it at the close ("my intent is to be the Sean to your Will tonight"). Defensiveness is armor against a vulnerability question, and it costs the thing the person actually wants: connection.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section" id="s2">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div>
+          <h2 class="section-title">The Diagnostic Question</h2>
+          <p class="section-subtitle">"What did I just hear versus what was actually said?"</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>The one question he wants asked the moment the defensive tingle shows up in the body &mdash; a perception check, not a communication technique.</p>
+        <h4>Worked example</h4>
+        <p>His wife asks him to rewash a baby bottle that sat out overnight &mdash; a neutral, practical request. What he <em>heard</em>: "You're not a good enough father to get this right on your own." What was actually <em>said</em>: wash it again. The gap between the two produced his sharp, defensive response &mdash; not her words themselves.</p>
+      </div>
+
+      <div class="quote-block">
+        <p>"If you perceive attack, you will defend against it." &mdash; same mechanism as a physical threat response. The perceived attack is frequently an illusion the listener constructs, not a fact about what was said.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section" id="s3">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div>
+          <h2 class="section-title">The Frankl Gap</h2>
+          <p class="section-subtitle">The model underneath everything else in the session</p>
+        </div>
+      </div>
+
+      <div class="card card-dark">
+        <p>"Between stimulus and response there is a space. In that space is our power to choose our response. In our response lies our growth and our freedom."</p>
+        <p style="margin-top:12px;font-size:12.5px;color:rgba(255,255,255,0.6);">&mdash; Viktor Frankl, <em>Man's Search for Meaning</em></p>
+      </div>
+
+      <div class="card">
+        <p>Her comment or critique is the stimulus. A reactive, defensive outburst is a response fired with no space between the two. The rest of the masterclass is organised around one project: <strong>widen that gap.</strong> Everything in sections 4 and 5 exists to make the space between stimulus and response bigger and more available in real time.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="section" id="s4">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div>
+          <h2 class="section-title">Outside the Moment</h2>
+          <p class="section-subtitle">Primary front. What you do outside the tension is what makes the in-the-moment tools reachable at all.</p>
+        </div>
+      </div>
+
+      <div class="callout callout-ink">
+        <p><strong>He's explicit this is the primary front, not the secondary one:</strong> in-the-moment tactics only become accessible if the nervous-system groundwork is already laid. Skip this and the in-the-moment tools stay theoretical &mdash; you won't be able to reach for them under real tension.</p>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title">The pressure metaphor</div>
+        <p style="font-size:14px;line-height:1.7;color:var(--text);">A balloon under pressure pops easily; a deflated one doesn't. Baseline stress (work, kids, life) raises internal pressure, so a small trigger is enough to blow past the stimulus-response gap into a reflexive reaction. The work below is about <strong>staying deflated</strong> &mdash; lowering baseline pressure so a normal-sized stimulus doesn't detonate a normal-sized response.</p>
+      </div>
+
+      <div class="card">
+        <h3>The "Men's Work" model (his coined term)</h3>
+        <p>Four levers for releasing baseline nervous-system pressure:</p>
+      </div>
+
+      <table class="ref-table">
+        <thead><tr><th>Lever</th><th>Mechanism</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Meditation</strong></td><td>The nervous system runs sympathetic (action/fire-fighting) and parasympathetic (rest/reflect/recharge) modes. Modern life over-indexes sympathetic. Even ~10 minutes of stillness gives it a scheduled chance to rebalance. His own tool recommendation for starting out: the free <strong>Insight Timer</strong> app &mdash; guided and unguided sessions, including a short beginner course.</td></tr>
+          <tr><td><strong>Exercise</strong></td><td>Movement flushes stress chemicals out of the body. Framed as a low bar &mdash; doesn't need to be intense, just consistent.</td></tr>
+          <tr><td><strong>Nutrition</strong></td><td>Not perfection, optimisation. Poor eating degrades how mind and body operate, raising vulnerability to defensiveness. Scale back the worst patterns rather than eliminating them.</td></tr>
+          <tr><td><strong>Sleep</strong></td><td>The lever he says men struggle with most. Chronic under-rest keeps the nervous system primed for a fight response. Improve quality or quantity where possible.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="card">
+        <h3>Journaling &mdash; a fifth, separate practice</h3>
+        <p>His reasoning: physical neglect shows up visibly (weight gain from eating badly every day). Mental and emotional neglect doesn't &mdash; there's no mirror for it. Journaling makes the internal state visible and workable instead of just circling silently. Three standard prompts he gives to someone starting out:</p>
+        <ol>
+          <li><strong>Gratitude / miracles</strong> &mdash; what good happened in the last 24 hours.</li>
+          <li><strong>What's weighing on me right now</strong> &mdash; externalise without needing to solve it in the same pass. Purely a dump, not a fix.</li>
+          <li><strong>Three actions today that would make today a success</strong> &mdash; forward-looking, concrete, achievable same-day.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="section" id="s5">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div>
+          <h2 class="section-title">Inside the Moment</h2>
+          <p class="section-subtitle">Secondary front &mdash; only reachable once the outside work is already in place</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <ul>
+          <li><strong>Two deep breaths</strong> before responding to anything said while frustrated &mdash; trained and anchored in advance, not a spontaneous decision made mid-conflict.</li>
+          <li><strong>Naming the need for space explicitly</strong> &mdash; "let's take five" as a stated, agreed pause, not stonewalling or silently walking away.</li>
+          <li><strong>Sitting in the discomfort of feedback</strong> without needing to react in order to end the discomfort quickly.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="section" id="s6">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div>
+          <h2 class="section-title">The Deeper Layer</h2>
+          <p class="section-subtitle">From the live Q+A &mdash; one level past the tactics above</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4>First line of defense &mdash; emotional tolerance</h4>
+        <p>Both defensiveness and dismissiveness are exit routes from a feeling the person doesn't want to feel (shame, guilt, embarrassment, fear) triggered by a partner's comment. The real skill being built is <strong>capacity to sit with an uncomfortable feeling without needing to escape it</strong> &mdash; exactly what journaling prompt #2 trains in a low-stakes setting, so it's available in a high-stakes one.</p>
+        <h4>Second line &mdash; identity</h4>
+        <p>Beyond tolerance for the feeling itself, he ties consistent non-defensive behaviour to whether the man holds and returns to a deliberately chosen identity ("I am the safe space for my wife/my kids"). Without an intentional identity to act from, a man defaults to whatever pattern is already grooved in &mdash; usually the reactive one.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>Where this sits relative to BMR:</strong> this is the one point in the call that moves past technique into identity-level change &mdash; the same territory MUD and Identity Set Point already cover in far more depth. This masterclass gestures at it in plain language; it doesn't have BMR's underlying architecture.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="section" id="s7">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div>
+          <h2 class="section-title">Practical Tools From Q+A</h2>
+          <p class="section-subtitle">Four tools that came out of live audience questions, not the prepared slide content</p>
+        </div>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-item">
+          <div class="pillar-name">The safe word</div>
+          <div class="pillar-desc">For catching over-explaining in the moment. A couple pre-agrees a light, playful word either partner can drop into a conversation the moment over-explaining starts &mdash; his read is that over-explaining is usually a stalling response to discomfort, not a genuine communication need. Breaks the pattern without a confrontation about it in the moment.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">The 24-hour rule</div>
+          <div class="pillar-desc">For a dismissive-avoidant / anxious-attachment pairing. When one partner needs distance under tension, the boundary that makes that safe for both sides is a pre-agreed re-engagement window ("we'll come back to this within 24 hours") &mdash; negotiated outside of tense moments, never during them.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">One topic at a time</div>
+          <div class="pillar-desc">For a man who gets overwhelmed and shuts down when barged with information mid-conversation. Agree a structure up front: once a set number of points has landed, pause and address them one at a time before moving on, rather than letting them stack. Framed as helping both the conversation and the relationship, not just him.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">Automated consistency reminders</div>
+          <div class="pillar-desc">For a man managing ADHD who wants to follow through on a relational commitment (checking in with his wife, a specific action during the week). Program the reminder into the phone at a moment he has the wherewithal to set it up, so the follow-through doesn't depend on remembering in the moment.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="section" id="s8">
+      <div class="section-header">
+        <div class="section-num">08</div>
+        <div>
+          <h2 class="section-title">Recommended Reading</h2>
+          <p class="section-subtitle">Three books he named directly, with his own framing of what each one is for</p>
+        </div>
+      </div>
+
+      <div class="reading-grid">
+        <div class="reading-item">
+          <div class="r-title">Nonviolent Communication<br><span style="font-weight:400;font-size:12px;color:var(--text-muted);">Marshall Rosenberg</span></div>
+          <div class="r-desc">His first recommendation specifically for mastering defensiveness &mdash; "a great book about sitting in stillness, not reacting harshly."</div>
+        </div>
+        <div class="reading-item">
+          <div class="r-title">Emotional Intelligence<br><span style="font-weight:400;font-size:12px;color:var(--text-muted);">Daniel Goleman</span></div>
+          <div class="r-desc">Flagged as accessible where a lot of personal-development reading gets too heady &mdash; "straightforward... like talking to a friend," not overly clinical or research-dense.</div>
+        </div>
+        <div class="reading-item">
+          <div class="r-title">Man's Search for Meaning<br><span style="font-weight:400;font-size:12px;color:var(--text-muted);">Viktor Frankl</span></div>
+          <div class="r-desc">Not a relationship book by design &mdash; the source of the stimulus-response quote in Section 3. Recommended for the underlying capacity it builds: recognising the power of what's happening in your own thinking before you act on it.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">Q</div>
+        <div>
+          <h2 class="section-title">Comprehension Check</h2>
+          <p class="section-subtitle">Answer from memory first. Click an option to check.</p>
+        </div>
+      </div>
+      <p class="quiz-intro">Twelve questions covering the reframe, the diagnostic question, the Frankl gap, both fronts, the deeper layer, the four practical tools, and the reading list.</p>
+
+      <div class="quiz-q" data-answer="B">
+        <span class="q-num">Question 1</span>
+        <p class="q-text">What is the masterclass's core position on defensiveness?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) It can be permanently eliminated with enough practice</button>
+          <button class="opt" data-opt="B">B) It can't be removed, only coped with and controlled</button>
+          <button class="opt" data-opt="C">C) It's caused entirely by the other partner's behaviour</button>
+          <button class="opt" data-opt="D">D) It only affects men who haven't done therapy</button>
+        </div>
+        <div class="q-result" data-explain="Conquering defensiveness is about coping and controlling it, not getting rid of it completely — you can't excavate it from your system."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="C">
+        <span class="q-num">Question 2</span>
+        <p class="q-text">In the bottle-washing story, what actually triggered his defensive reaction?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) His wife raised her voice at him</button>
+          <button class="opt" data-opt="B">B) He was already exhausted from a hard day</button>
+          <button class="opt" data-opt="C">C) What he heard ("you're not a good enough father") versus what was actually said (wash it twice)</button>
+          <button class="opt" data-opt="D">D) A pre-existing argument about parenting roles</button>
+        </div>
+        <div class="q-result" data-explain="The request itself was neutral and practical. The gap between what he heard and what was said — not her actual words — produced the reaction."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="D">
+        <span class="q-num">Question 3</span>
+        <p class="q-text">According to the Frankl quote, where does growth and freedom live?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) In avoiding the stimulus altogether</button>
+          <button class="opt" data-opt="B">B) In the response itself, regardless of what it is</button>
+          <button class="opt" data-opt="C">C) In apologising quickly after a reaction</button>
+          <button class="opt" data-opt="D">D) In the space between stimulus and response, where a response gets chosen</button>
+        </div>
+        <div class="q-result" data-explain="\"Between stimulus and response there is a space. In that space is our power to choose our response. In our response lies our growth and our freedom.\""></div>
+      </div>
+
+      <div class="quiz-q" data-answer="A">
+        <span class="q-num">Question 4</span>
+        <p class="q-text">Which front does the masterclass treat as primary: outside-the-moment work, or inside-the-moment tactics?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) Outside-the-moment work — it's what makes the in-the-moment tools reachable at all</button>
+          <button class="opt" data-opt="B">B) Inside-the-moment tactics — they work regardless of baseline stress</button>
+          <button class="opt" data-opt="C">C) Neither; only professional therapy actually changes the pattern</button>
+          <button class="opt" data-opt="D">D) They're presented as fully interchangeable</button>
+        </div>
+        <div class="q-result" data-explain="He's explicit: inside-the-moment tactics are secondary. Skip the outside work and they stay theoretical — you won't be able to reach for them under real tension."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="C">
+        <span class="q-num">Question 5</span>
+        <p class="q-text">What does the balloon/pressure metaphor illustrate?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) Some men are just naturally more defensive than others</button>
+          <button class="opt" data-opt="B">B) Defensiveness only happens in high-stakes conversations</button>
+          <button class="opt" data-opt="C">C) Higher baseline stress/pressure makes a small trigger enough to cause a reflexive reaction</button>
+          <button class="opt" data-opt="D">D) Couples should avoid conflict entirely to stay calm</button>
+        </div>
+        <div class="q-result" data-explain="A pressurised balloon pops easily, a deflated one doesn't — baseline stress from work, kids, and life raises internal pressure, so a normal-sized stimulus is enough to blow past the stimulus-response gap."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="B">
+        <span class="q-num">Question 6</span>
+        <p class="q-text">Which four levers make up his "Men's Work" model for outside-the-moment regulation?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) Therapy, medication, accountability partners, church</button>
+          <button class="opt" data-opt="B">B) Meditation, exercise, nutrition, sleep</button>
+          <button class="opt" data-opt="C">C) Journaling, reading, cold plunges, fasting</button>
+          <button class="opt" data-opt="D">D) Boundaries, communication, apology, repair</button>
+        </div>
+        <div class="q-result" data-explain="Meditation, exercise, nutrition, and sleep — with journaling treated as a fifth, separate practice on top of the four."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="D">
+        <span class="q-num">Question 7</span>
+        <p class="q-text">Why does he treat journaling as necessary alongside the four Men's Work levers?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) It's the only lever backed by clinical research</button>
+          <button class="opt" data-opt="B">B) It replaces the need for the other four</button>
+          <button class="opt" data-opt="C">C) His coaches require it as homework</button>
+          <button class="opt" data-opt="D">D) Mental/emotional neglect has no visible mirror the way physical neglect does — journaling makes the internal state visible and workable</button>
+        </div>
+        <div class="q-result" data-explain="Poor eating shows up as weight gain over time; poor mental/emotional habits don't have an equivalent visible signal. Journaling is what makes that state trackable."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="A">
+        <span class="q-num">Question 8</span>
+        <p class="q-text">In the Q+A, what does he name as the "first line of defense" against both defensiveness and dismissiveness?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) Capacity to sit with an uncomfortable feeling (shame, guilt, fear) without needing to escape it</button>
+          <button class="opt" data-opt="B">B) Reading more books on emotional intelligence</button>
+          <button class="opt" data-opt="C">C) Having a strict rule to never raise your voice</button>
+          <button class="opt" data-opt="D">D) Getting the other partner to change how they bring things up</button>
+        </div>
+        <div class="q-result" data-explain="Both patterns are exit routes from an uncomfortable feeling the partner's comment triggers. The skill being built is tolerance for sitting with that feeling — which is what journaling prompt #2 trains."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="C">
+        <span class="q-num">Question 9</span>
+        <p class="q-text">What is the "safe word" tool used for?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) Ending an argument immediately with no further discussion</button>
+          <button class="opt" data-opt="B">B) Signalling that one partner needs 24 hours before responding</button>
+          <button class="opt" data-opt="C">C) A light, pre-agreed word either partner can use to flag over-explaining in the moment</button>
+          <button class="opt" data-opt="D">D) A code word used only during scheduled check-ins</button>
+        </div>
+        <div class="q-result" data-explain="A playful, pre-agreed word that breaks the pattern of over-explaining without needing a confrontation about it in the moment."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="D">
+        <span class="q-num">Question 10</span>
+        <p class="q-text">What does the 24-hour rule address?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) How often couples should schedule date nights</button>
+          <button class="opt" data-opt="B">B) The maximum time allowed for a meditation session</button>
+          <button class="opt" data-opt="C">C) How long to wait before journaling after a conflict</button>
+          <button class="opt" data-opt="D">D) A pre-agreed re-engagement window for a dismissive-avoidant / anxious-attachment pairing, so space doesn't become abandonment</button>
+        </div>
+        <div class="q-result" data-explain="Negotiated outside of tense moments: if one partner needs distance, both agree they'll come back to the topic within 24 hours."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="B">
+        <span class="q-num">Question 11</span>
+        <p class="q-text">What is the "one topic at a time" tool meant to address?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) A partner who never wants to talk about problems at all</button>
+          <button class="opt" data-opt="B">B) A man who gets overwhelmed and shuts down when multiple points get raised at once</button>
+          <button class="opt" data-opt="C">C) Deciding who initiates difficult conversations</button>
+          <button class="opt" data-opt="D">D) How often a couple should schedule check-ins</button>
+        </div>
+        <div class="q-result" data-explain="For someone who feels flooded when barged with information, the fix is agreeing a structure up front: address points one at a time instead of letting them stack."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="A">
+        <span class="q-num">Question 12</span>
+        <p class="q-text">Which book did he recommend specifically as "a great book about sitting in stillness, not reacting harshly"?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) Nonviolent Communication</button>
+          <button class="opt" data-opt="B">B) Man's Search for Meaning</button>
+          <button class="opt" data-opt="C">C) Emotional Intelligence</button>
+          <button class="opt" data-opt="D">D) The Subtle Art of Not Giving a F*ck</button>
+        </div>
+        <div class="q-result" data-explain="Nonviolent Communication was his first reading recommendation, offered directly in response to a question about mastering defensiveness."></div>
+      </div>
+
+    </section>
+
+    <footer class="site-footer">
+      <p>Better Man Recovery &middot; Private study reference &middot; Not for distribution</p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+document.querySelectorAll('.quiz-q').forEach(function(q) {
+  var answer = q.getAttribute('data-answer');
+  var result = q.querySelector('.q-result');
+  q.querySelectorAll('.opt').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (q.classList.contains('answered')) return;
+      q.classList.add('answered');
+      var chosen = btn.getAttribute('data-opt');
+      var explain = result.getAttribute('data-explain') || '';
+      q.querySelectorAll('.opt').forEach(function(b) {
+        b.disabled = true;
+        if (b.getAttribute('data-opt') === answer) b.classList.add('correct');
+      });
+      if (chosen === answer) {
+        result.textContent = 'Correct. ' + explain;
+        result.className = 'q-result show right';
+      } else {
+        btn.classList.add('incorrect');
+        result.textContent = 'Not quite. The answer is ' + answer + '. ' + explain;
+        result.className = 'q-result show wrong';
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
