@@ -160,6 +160,33 @@
   .phase-name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
   .phase-sub { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
   @media (max-width: 860px) { .pillars-grid[style] { grid-template-columns: 1fr !important; } }
+
+  /* his visuals, recreated */
+  .quad-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 8px auto 18px; max-width: 560px; }
+  .quad-axis { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); font-weight: 700; text-align: center; }
+  .quad-mid { display: grid; grid-template-columns: 110px 1fr 110px; align-items: center; gap: 12px; width: 100%; }
+  .quad-mid .quad-axis { line-height: 1.4; }
+  .quad { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .quad-cell { aspect-ratio: 1 / 1; background: var(--ink); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 44px; font-weight: 800; }
+  .quad-cell.hot { background: var(--amber); }
+  .bomb-svg, .space-svg { width: 100%; height: auto; display: block; margin: 0 auto; }
+  .tbr { display: flex; align-items: stretch; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 8px 0 6px; }
+  .tbr-box { min-width: 130px; padding: 18px 26px; border-radius: 6px; font-size: 20px; font-weight: 800; text-align: center; letter-spacing: 0.02em; color: #fff; }
+  .tbr-arrow { align-self: center; font-size: 22px; color: var(--ink); }
+  .tbr-note { text-align: right; font-size: 12.5px; font-style: italic; color: #C83232; margin: 0 4px 14px; }
+  .trig-row { display: grid; grid-template-columns: 190px 1fr; border-left: 4px solid var(--amber); background: var(--surface-2); border-radius: 0 6px 6px 0; margin-bottom: 10px; }
+  .trig-row .t-name { padding: 16px 18px; }
+  .trig-row .t-name strong { display: block; font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--amber); }
+  .trig-row .t-name span { font-size: 12.5px; font-style: italic; color: var(--text-muted); }
+  .trig-row .t-desc { padding: 16px 18px; font-size: 14px; color: var(--text); align-self: center; }
+  .tm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .tm-box { background: var(--ink); border-radius: 8px; padding: 16px 18px; border-top: 3px solid var(--amber); }
+  .tm-box .tm-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--amber-bright); font-weight: 700; margin-bottom: 8px; }
+  .tm-box .tm-q { font-size: 13.5px; font-style: italic; color: rgba(255,255,255,0.78); line-height: 1.5; }
+  .tm-box .tm-a { font-size: 14px; color: #fff; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.18); }
+  .tm-box .tm-a.empty { color: rgba(255,255,255,0.45); font-style: italic; }
+  .tm-box .tm-a small { display: block; margin-top: 8px; font-size: 12.5px; color: rgba(255,255,255,0.7); }
+  @media (max-width: 860px) { .quad-mid { grid-template-columns: 70px 1fr 70px; } .trig-row, .tm-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -175,6 +202,7 @@
     </div>
     <span class="nav-section">On this page</span>
     <ul class="sidebar-nav">
+      <li><a href="#mine">My Trigger Map</a></li>
       <li><a href="#protocol">The Protocol</a></li>
       <li><a href="#s1">The Skill Gap</a></li>
       <li><a href="#s2">Where You Started (The Grid)</a></li>
@@ -202,6 +230,25 @@
       </div>
     </header>
 
+    <!-- MY TRIGGER MAP -->
+    <section class="section" id="mine">
+      <div class="section-header">
+        <div class="section-num">&#9679;</div>
+        <div>
+          <h2 class="section-title">My Trigger Map</h2>
+          <p class="section-subtitle">Filled in live during the masterclass. Same six boxes as the exercise in Section 6.</p>
+        </div>
+      </div>
+      <div class="tm-grid">
+        <div class="tm-box"><div class="tm-label">My #1 Situational Trigger</div><div class="tm-q">What situation sets me off most reliably?</div><div class="tm-a empty">Not filled in yet.</div></div>
+        <div class="tm-box"><div class="tm-label">My #1 Relational Trigger</div><div class="tm-q">What does she say or do that activates me?</div><div class="tm-a">Her tone (sarcastic, frustrated, angry) on top of the content, plus unprompted references to the cheating surfacing mid-conversation out of nowhere: "that girl you cheated with," "the other night you cheated on me." It's the ambush quality of it, not just the topic.</div></div>
+        <div class="tm-box"><div class="tm-label">My #1 Historical Trigger</div><div class="tm-q">What old wound is this connecting to?</div><div class="tm-a">Being reminded of the cheating, directly or indirectly, confirms the buried belief that I'm a bad person, someone with no integrity, not who I think I am as a partner. Reopened by any broken commitment or moment I fail to protect her.</div></div>
+        <div class="tm-box"><div class="tm-label">My Body Signal</div><div class="tm-q">Where do I first feel it? What does it feel like?</div><div class="tm-a">Heat in the face, stomach drop, jaw clenching/grinding teeth.</div></div>
+        <div class="tm-box"><div class="tm-label">My Default Reaction</div><div class="tm-q">What do I do when triggered? Explode or disappear?</div><div class="tm-a">Bite back and go openly frustrated, or shut down completely.</div></div>
+        <div class="tm-box"><div class="tm-label">My Commitment</div><div class="tm-q">What will I do differently starting tonight?</div><div class="tm-a">Before I respond, plant my feet and take one breath. Then ask myself what she's protecting by being upset, instead of what she's attacking in me. I've done this before and gotten it right, so this isn't hoping for something new, it's repeating something I know I can do.<small>Her anger usually isn't the real thing, it's covering something more vulnerable underneath: fear, feeling unsafe, or feeling like she can't trust me not to do it again. That's what "what she's protecting" means in the moment.</small></div></div>
+      </div>
+    </section>
+
     <!-- PROTOCOL -->
     <section class="section" id="protocol">
       <div class="section-header">
@@ -215,7 +262,7 @@
       <div class="card card-accent">
         <h3>Set up once</h3>
         <ol>
-          <li><strong>Fill in your trigger map</strong> (Section 6). Six boxes: situational trigger, relational trigger, historical trigger, body signal, default reaction, commitment. Keep it somewhere you'll see it. Awareness plus a commitment is the point, so don't file it away.</li>
+          <li><strong>Fill in your trigger map</strong> (Section 6). Yours is at the top of this page. Six boxes: situational trigger, relational trigger, historical trigger, body signal, default reaction, commitment. Keep it somewhere you'll see it. Awareness plus a commitment is the point, so don't file it away.</li>
           <li><strong>Tell your wife about the pause</strong> before you use it. Pick a calm moment and say you're practising taking a breath before responding, and it may look like you've gone quiet. That turns the pause into something you've told her you'll do.</li>
         </ol>
       </div>
@@ -324,18 +371,36 @@
         <div class="section-num">02</div>
         <div>
           <h2 class="section-title">Where You Started (The Grid)</h2>
-          <p class="section-subtitle">Two axes that show why emotional skills are a hard starting point for most men</p>
+          <p class="section-subtitle">Where do you fall on this grid?</p>
+        </div>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title">Based on your experience as a boy</div>
+        <div class="quad-wrap">
+          <div class="quad-axis">&#8593; Vulnerability Encouraged</div>
+          <div class="quad-mid">
+            <div class="quad-axis" style="text-align:right;">&#8592; Emotionally Closed Father</div>
+            <div class="quad">
+              <div class="quad-cell">A</div>
+              <div class="quad-cell">B</div>
+              <div class="quad-cell hot">C</div>
+              <div class="quad-cell">D</div>
+            </div>
+            <div class="quad-axis" style="text-align:left;">Emotionally Open Father &#8594;</div>
+          </div>
+          <div class="quad-axis">&#8595; Vulnerability Discouraged</div>
         </div>
       </div>
 
       <div class="card">
-        <p>A 2x2. The vertical axis is whether vulnerability was <strong>encouraged or discouraged</strong> when you were a boy. The horizontal axis is whether your father was <strong>emotionally closed or emotionally open</strong>.</p>
-        <table class="ref-table">
-          <tr><th></th><th>Father emotionally closed</th><th>Father emotionally open</th></tr>
-          <tr><td><strong>Vulnerability encouraged</strong></td><td>A</td><td>B (the best starting point: someone said "let's talk about how I'm feeling")</td></tr>
-          <tr><td><strong>Vulnerability discouraged</strong></td><td>C ("suck it up, I don't want to see you cry")</td><td>D</td></tr>
-        </table>
-        <p>Most men in the room landed in <strong>C</strong>. He says it plainly: not a criticism of your dad, who did the best with what his own generation gave him. His point is that C is a poor starting position for becoming an open, emotionally available, non-defensive husband, and seeing it is the first step. From there you can build the encouragement to be vulnerable and become the emotionally open father for your own kids.</p>
+        <p>The vertical axis is whether vulnerability was <strong>encouraged or discouraged</strong> when you were a boy. The horizontal axis is whether your father was <strong>emotionally closed or emotionally open</strong>.</p>
+        <ul>
+          <li><strong>B</strong> is encouraged plus an open father: someone said "let's talk about how I'm feeling, I'm stressed today."</li>
+          <li><strong>C</strong> is discouraged plus a closed or absent father: "suck it up, kid, I don't want to see you cry."</li>
+        </ul>
+        <p>Most men in the room landed in <strong>C</strong>. He says it plainly: not a criticism of your dad, who did the best with what his own generation gave him. Sport reinforces it too: if you got hurt you didn't show it, you didn't rub the ribs after a fastball. In C, emotions get no priority at all, so a relationship where emotions are central goes badly. You get dysregulated often, respond harshly when you don't want to, and shut down because it's too much.</p>
+        <p>C is a poor starting point for becoming an open, emotionally available, non-defensive husband. Seeing it is the first step, and from there you build the encouragement to be vulnerable and become the emotionally open father for your own kids. He says he's still working on it himself.</p>
       </div>
 
       <div class="callout">
@@ -356,6 +421,31 @@
       <div class="card">
         <p>His central image: <strong>you have a bomb inside you.</strong> Not because you're toxic, but because of pent-up emotion you haven't processed. Three parts: the <strong>trigger</strong> (the spark), the <strong>build</strong> (the fuse burning), and the <strong>reaction</strong> (the bomb going off: defensiveness, shutdown, running away).</p>
         <p><strong>Most men only notice the reaction.</strong> They see the urge to fight or flee, not the spark and not the build. That's why they keep trying to change the reaction and keep failing. Change lives earlier.</p>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title">You're the bomb</div>
+        <svg class="bomb-svg" viewBox="0 0 520 300" role="img" aria-label="Bomb diagram: the trigger sparks the fuse, the bomb is the reaction" style="max-width:520px;">
+          <polygon points="62,60 78,86 108,70 96,100 130,104 100,120 116,146 84,132 70,162 58,130 28,142 48,114 20,96 52,92" fill="var(--amber-bright)" stroke="var(--amber)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M120 112 C170 40, 250 30, 292 118" fill="none" stroke="var(--ink)" stroke-width="7" stroke-linecap="round"/>
+          <circle cx="345" cy="190" r="96" fill="var(--amber)"/>
+          <rect x="285" y="96" width="56" height="30" rx="6" transform="rotate(-38 313 111)" fill="var(--ink)"/>
+          <text x="345" y="198" text-anchor="middle" font-family="Figtree, sans-serif" font-size="22" font-weight="800" fill="#fff">The Reaction</text>
+          <text x="66" y="196" text-anchor="middle" font-family="Figtree, sans-serif" font-size="18" font-weight="700" fill="var(--ink)">The Trigger</text>
+        </svg>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title">The trigger vs. the reaction</div>
+        <div class="tbr">
+          <div class="tbr-box" style="background:var(--ink);">TRIGGER</div>
+          <div class="tbr-arrow">&#8594;</div>
+          <div class="tbr-box" style="background:var(--amber);">BUILD</div>
+          <div class="tbr-arrow">&#8594;</div>
+          <div class="tbr-box" style="background:#C83232;">REACTION</div>
+        </div>
+        <p class="tbr-note">Most men are aware of THIS &#8593;</p>
+        <p style="text-align:center;font-weight:700;color:var(--ink);font-size:15px;margin:0;">The gap between trigger and reaction is where everything can change.</p>
       </div>
 
       <div class="diagram-wrap">
@@ -398,19 +488,11 @@
         </div>
       </div>
 
-      <div class="pillars-grid" style="grid-template-columns:repeat(3,1fr);">
-        <div class="pillar-item">
-          <div class="pillar-name">Situational</div>
-          <div class="pillar-desc"><strong>What happened.</strong> She said the wrong thing, the timing was bad, something didn't go your way. The circumstances, taken alone.</div>
-        </div>
-        <div class="pillar-item">
-          <div class="pillar-name">Relational</div>
-          <div class="pillar-desc"><strong>Who said it.</strong> The same words from a stranger land differently than from your wife.</div>
-        </div>
-        <div class="pillar-item">
-          <div class="pillar-name">Historical</div>
-          <div class="pillar-desc"><strong>What it reminds you of.</strong> An old wound, a past relationship, something from five years ago in this marriage that this moment feels like.</div>
-        </div>
+      <div class="diagram-wrap">
+        <div class="diagram-title">The 3 types of triggers</div>
+        <div class="trig-row"><div class="t-name"><strong>Situational</strong><span>What happened.</span></div><div class="t-desc">She said the wrong thing. The timing was bad. Something didn't go your way.</div></div>
+        <div class="trig-row"><div class="t-name"><strong>Relational</strong><span>Who said it.</span></div><div class="t-desc">The same words from a stranger vs. your wife hit completely differently.</div></div>
+        <div class="trig-row"><div class="t-name"><strong>Historical</strong><span>What it reminds you of.</span></div><div class="t-desc">Old wounds. Old patterns. A feeling you know from long before this marriage.</div></div>
       </div>
 
       <div class="card">
@@ -460,6 +542,23 @@
         <p>"Between stimulus and response there is a space. In that space is our power to choose our response. In our response lies our growth and our freedom." Viktor Frankl</p>
       </div>
 
+      <div class="diagram-wrap">
+        <div class="diagram-title">Stimulus, space, response</div>
+        <svg class="space-svg" viewBox="0 0 480 230" role="img" aria-label="Stick figure standing in the space between stimulus and response" style="max-width:480px;">
+          <line x1="150" y1="22" x2="150" y2="176" stroke="var(--ink)" stroke-width="3"/>
+          <line x1="330" y1="22" x2="330" y2="176" stroke="var(--ink)" stroke-width="3"/>
+          <line x1="40" y1="176" x2="440" y2="176" stroke="var(--ink)" stroke-width="3"/>
+          <circle cx="240" cy="56" r="15" fill="none" stroke="var(--ink)" stroke-width="3"/>
+          <line x1="240" y1="71" x2="240" y2="124" stroke="var(--ink)" stroke-width="3"/>
+          <line x1="152" y1="88" x2="328" y2="88" stroke="var(--ink)" stroke-width="3"/>
+          <line x1="240" y1="124" x2="214" y2="176" stroke="var(--ink)" stroke-width="3"/>
+          <line x1="240" y1="124" x2="266" y2="176" stroke="var(--ink)" stroke-width="3"/>
+          <text x="20" y="98" font-family="Georgia, serif" font-size="19" fill="var(--ink)">Stimulus</text>
+          <text x="352" y="98" font-family="Georgia, serif" font-size="19" fill="var(--ink)">Response</text>
+          <text x="240" y="212" text-anchor="middle" font-family="Georgia, serif" font-size="20" letter-spacing="8" fill="var(--ink)">SPACE</text>
+        </svg>
+      </div>
+
       <div class="card">
         <p>Frankl was a psychiatrist and a Holocaust survivor, which is why the quote carries weight: the stimulus in front of him was atrocious, and how he responded was still a choice. In a marriage the scale is far smaller, but the mechanism is the same. If there is no space between what she says and how you respond, you're quick-witted, shooting from the hip, and reactive by default. More space means more freedom and more growth.</p>
       </div>
@@ -497,15 +596,14 @@
 
       <div class="card">
         <p>The exercise takes the whole first half and makes it personal. Fill in six boxes:</p>
-        <table class="ref-table">
-          <tr><th>Box</th><th>The question</th></tr>
-          <tr><td><strong>My #1 situational trigger</strong></td><td>What situation sets me off most reliably?</td></tr>
-          <tr><td><strong>My #1 relational trigger</strong></td><td>What does she say or do that activates me?</td></tr>
-          <tr><td><strong>My #1 historical trigger</strong></td><td>What old wound is this connecting to?</td></tr>
-          <tr><td><strong>My body signal</strong></td><td>Where do I first feel it? What does it feel like?</td></tr>
-          <tr><td><strong>My default reaction</strong></td><td>What do I do when triggered? Explode, disappear, go numb, fight, flight or freeze?</td></tr>
-          <tr><td><strong>My commitment</strong></td><td>What will I do differently starting tonight?</td></tr>
-        </table>
+        <div class="tm-grid">
+          <div class="tm-box"><div class="tm-label">My #1 Situational Trigger</div><div class="tm-q">What situation sets me off most reliably?</div></div>
+          <div class="tm-box"><div class="tm-label">My #1 Relational Trigger</div><div class="tm-q">What does she say or do that activates me?</div></div>
+          <div class="tm-box"><div class="tm-label">My #1 Historical Trigger</div><div class="tm-q">What old wound is this connecting to?</div></div>
+          <div class="tm-box"><div class="tm-label">My Body Signal</div><div class="tm-q">Where do I first feel it? What does it feel like?</div></div>
+          <div class="tm-box"><div class="tm-label">My Default Reaction</div><div class="tm-q">What do I do when triggered? Explode or disappear?</div></div>
+          <div class="tm-box"><div class="tm-label">My Commitment</div><div class="tm-q">What will I do differently starting tonight?</div></div>
+        </div>
         <p>His reasoning for the last box: building awareness is useful, but change starts when you decide how you'll move tomorrow because of what you now know. <strong>Awareness plus commitment</strong> is the pairing. He asks you to take the map with you and use it, not shelve it.</p>
       </div>
 
