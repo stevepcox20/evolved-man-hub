@@ -888,30 +888,53 @@
 </div>
 
 <script>
-document.querySelectorAll('.quiz-q').forEach(function(q) {
-  var answer = q.getAttribute('data-answer');
-  var result = q.querySelector('.q-result');
-  q.querySelectorAll('.opt').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      if (q.classList.contains('answered')) return;
-      q.classList.add('answered');
-      var chosen = btn.getAttribute('data-opt');
-      var explain = result.getAttribute('data-explain') || '';
-      q.querySelectorAll('.opt').forEach(function(b) {
-        b.disabled = true;
-        if (b.getAttribute('data-opt') === answer) b.classList.add('correct');
-      });
-      if (chosen === answer) {
-        result.textContent = 'Correct. ' + explain;
-        result.className = 'q-result show right';
-      } else {
-        btn.classList.add('incorrect');
-        result.textContent = 'Not quite. The answer is ' + answer + '. ' + explain;
-        result.className = 'q-result show wrong';
-      }
+(function() {
+  var KEY = 'quiz:' + location.pathname;
+  function load() { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } }
+  function save(d) { try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {} }
+  var saved = load();
+  var qs = document.querySelectorAll('.quiz-q');
+
+  function reveal(q, chosen) {
+    var answer = q.getAttribute('data-answer');
+    var result = q.querySelector('.q-result');
+    var explain = result.getAttribute('data-explain') || '';
+    q.classList.add('answered');
+    q.querySelectorAll('.opt').forEach(function(b) {
+      b.disabled = true;
+      if (b.getAttribute('data-opt') === answer) b.classList.add('correct');
+      if (b.getAttribute('data-opt') === chosen && chosen !== answer) b.classList.add('incorrect');
     });
+    if (chosen === answer) {
+      result.textContent = 'Correct. ' + explain;
+      result.className = 'q-result show right';
+    } else {
+      result.textContent = 'Not quite. The answer is ' + answer + '. ' + explain;
+      result.className = 'q-result show wrong';
+    }
+  }
+
+  qs.forEach(function(q, i) {
+    q.querySelectorAll('.opt').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (q.classList.contains('answered')) return;
+        var chosen = btn.getAttribute('data-opt');
+        reveal(q, chosen);
+        var d = load(); d[i] = chosen; save(d);
+      });
+    });
+    if (saved[i]) reveal(q, saved[i]);
   });
-});
+
+  var intro = document.querySelector('.quiz-intro');
+  if (intro) {
+    var reset = document.createElement('button');
+    reset.textContent = 'Reset my answers';
+    reset.style.cssText = "margin-left:10px;font-family:'Figtree',sans-serif;font-size:12px;font-weight:600;color:#23262B;background:#ECEAE6;border:1px solid rgba(35,38,43,0.26);border-radius:6px;padding:5px 10px;cursor:pointer;";
+    reset.addEventListener('click', function() { try { localStorage.removeItem(KEY); } catch (e) {} location.reload(); });
+    intro.appendChild(reset);
+  }
+})();
 </script>
 
 </body>
