@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>My Plan &middot; Evolved Man Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #23262B;
+    --ink-light: #4A5568;
+    --ink-faint: #ECEAE6;
+    --ink-tint: #DFDCD6;
+    --amber: #C9722E;
+    --amber-bright: #E08D3C;
+    --amber-faint: #FBEEE0;
+    --ground: #EDEAE2;
+    --surface: #FCFBF9;
+    --surface-2: #F3F1EC;
+    --text: #211F1C;
+    --text-muted: #6B655D;
+    --border: rgba(35,38,43,0.13);
+    --border-strong: rgba(35,38,43,0.26);
+    --red-faint: rgba(200,50,50,0.07);
+    --red-border: rgba(200,50,50,0.2);
+    --green-faint: rgba(30,140,80,0.08);
+    --green-border: rgba(30,140,80,0.2);
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ground);
+    color: var(--text);
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .page-wrap { display: grid; grid-template-columns: 232px 1fr; min-height: 100vh; }
+
+  .sidebar {
+    position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    background: var(--surface); border-right: 1px solid var(--border);
+    padding: 24px 0; display: flex; flex-direction: column;
+    scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  }
+  .sidebar-logo { padding: 0 18px 20px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
+  .sidebar-logo .belt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); font-weight: 600; display: block; margin-bottom: 4px; }
+  .sidebar-logo .title { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+  .sidebar-logo .back-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 12px; color: var(--ink); text-decoration: none; font-weight: 600; background: var(--ink-faint); border: 1px solid var(--border-strong); border-radius: 6px; padding: 7px 12px; }
+  .sidebar-logo .back-link:hover { background: var(--ink-tint); }
+  .sidebar-nav { list-style: none; padding: 0; }
+  .sidebar-nav li a { display: block; padding: 7px 18px; font-size: 12px; font-weight: 500; color: var(--text-muted); text-decoration: none; border-left: 2px solid transparent; transition: color 0.12s, border-color 0.12s, background 0.12s; line-height: 1.4; }
+  .sidebar-nav li a:hover { color: var(--ink); background: var(--ink-tint); border-left-color: var(--amber); }
+  .nav-section { display: flex; align-items: center; gap: 8px; margin: 18px 12px 8px; padding: 10px 12px; background: var(--ink); color: #fff; border-radius: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; }
+
+  .main { min-width: 0; }
+
+  .hero { background: var(--ink); padding: 60px 52px 52px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; bottom: -80px; right: -80px; width: 360px; height: 360px; border-radius: 50%; background: rgba(255,255,255,0.03); pointer-events: none; }
+  .hero-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber-bright); font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .hero-eyebrow::after { content: ''; display: block; height: 1px; width: 36px; background: var(--amber-bright); opacity: 0.6; }
+  .hero h1 { font-size: clamp(32px, 4.5vw, 50px); font-weight: 800; line-height: 1.1; color: #ffffff; margin-bottom: 18px; letter-spacing: -0.02em; }
+  .hero h1 em { font-style: italic; color: var(--amber-bright); font-weight: 700; }
+  .hero-desc { font-size: 15px; color: rgba(255,255,255,0.72); max-width: 560px; line-height: 1.7; margin-bottom: 36px; }
+  .hero-stats { display: flex; gap: 36px; flex-wrap: wrap; }
+  .hero-stat { display: flex; flex-direction: column; gap: 3px; }
+  .hero-stat .num { font-size: 28px; font-weight: 800; color: var(--amber-bright); line-height: 1; letter-spacing: -0.02em; }
+  .hero-stat .label { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; }
+
+  .section { padding: 48px 52px; border-bottom: 1px solid var(--border); }
+  .section-header { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 32px; }
+  .section-num { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--amber); letter-spacing: 0.1em; margin-top: 7px; flex-shrink: 0; width: 26px; }
+  .section-title { font-size: 26px; font-weight: 800; color: var(--ink); line-height: 1.2; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .section-subtitle { font-size: 13px; color: var(--text-muted); }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px 28px; margin-bottom: 16px; }
+  .card h3 { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+  .card h4 { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink); margin-bottom: 8px; margin-top: 20px; opacity: 0.7; }
+  .card h4:first-child { margin-top: 0; }
+  .card p { font-size: 14px; line-height: 1.7; color: var(--text); margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .card ul, .card ol { padding-left: 20px; margin-bottom: 10px; }
+  .card li { font-size: 14px; line-height: 1.65; color: var(--text); margin-bottom: 5px; }
+  .card strong { font-weight: 700; color: var(--ink); }
+  .card em { color: var(--amber); font-style: italic; }
+  .card-accent { background: var(--ink-faint); border-color: var(--border-strong); border-left: 3px solid var(--amber); }
+  .card-dark { background: var(--ink); border-color: transparent; }
+  .card-dark h3 { color: #fff; }
+  .card-dark h4 { color: var(--amber-bright); opacity: 1; }
+  .card-dark p, .card-dark li { color: rgba(255,255,255,0.85); }
+  .card-dark strong { color: #fff; }
+
+  .quote-block { background: var(--ink-faint); border-left: 3px solid var(--ink); padding: 18px 22px; margin-bottom: 14px; border-radius: 0 6px 6px 0; }
+  .quote-block p { font-size: 16px; font-weight: 600; font-style: italic; color: var(--ink); line-height: 1.55; margin: 0; }
+
+  .callout { background: var(--amber-faint); border: 1px solid rgba(201,114,46,0.22); border-radius: 8px; padding: 16px 20px; margin-bottom: 16px; }
+  .callout p { font-size: 14px; color: var(--text); margin: 0; line-height: 1.6; }
+  .callout strong { color: var(--amber); font-weight: 700; }
+  .callout-ink { background: var(--ink-faint); border-color: var(--border-strong); }
+  .callout-ink p { color: var(--ink); font-weight: 500; }
+  .callout-ink strong { color: var(--ink); }
+
+  .ref-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; font-size: 13.5px; }
+  .ref-table th { background: var(--ink); color: #fff; text-align: left; padding: 11px 16px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 600; }
+  .ref-table td { padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; }
+  .ref-table tr:last-child td { border-bottom: none; }
+  .ref-table tr:nth-child(even) td { background: var(--ink-faint); }
+  .ref-table td strong { color: var(--ink); }
+
+  .diagram-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 28px; margin-bottom: 20px; }
+  .diagram-title { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; opacity: 0.7; }
+  .diagram-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+  .pillar-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px; border-top: 3px solid var(--amber); }
+  .pillar-item .pillar-name { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .pillar-item .pillar-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+  .reading-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+  .reading-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px; border-top: 3px solid var(--ink-light); }
+  .reading-item .r-title { font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 8px; line-height: 1.3; }
+  .reading-item .r-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+
+  .quiz-intro { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+  .quiz-q { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 22px 26px; margin-bottom: 16px; }
+  .quiz-q .q-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); font-weight: 700; display: block; margin-bottom: 8px; }
+  .quiz-q .q-text { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 14px; line-height: 1.5; }
+  .quiz-q .options { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-q .opt { text-align: left; background: var(--ground); border: 1px solid var(--border); border-radius: 6px; padding: 11px 15px; font-family: 'Figtree', sans-serif; font-size: 13.5px; line-height: 1.5; color: var(--text); cursor: pointer; transition: border-color 0.12s, background 0.12s; }
+  .quiz-q .opt:hover { border-color: var(--ink-light); background: var(--ink-faint); }
+  .quiz-q .opt.correct { background: var(--green-faint); border-color: #2ba84a; color: #1a5030; font-weight: 600; }
+  .quiz-q .opt.incorrect { background: var(--red-faint); border-color: #c03030; color: #7a2020; }
+  .quiz-q .opt:disabled { cursor: default; }
+  .quiz-q .q-result { margin-top: 12px; font-size: 13px; line-height: 1.6; display: none; padding: 12px 16px; border-radius: 6px; }
+  .quiz-q .q-result.show { display: block; }
+  .quiz-q .q-result.right { background: var(--green-faint); border: 1px solid var(--green-border); color: #1a5030; }
+  .quiz-q .q-result.wrong { background: var(--red-faint); border: 1px solid var(--red-border); color: #7a2020; }
+
+  .site-footer { background: var(--surface); padding: 24px 52px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .site-footer p { font-size: 12px; color: var(--text-muted); }
+  .site-footer a { font-size: 12px; color: var(--amber); text-decoration: none; font-weight: 600; }
+  .site-footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 860px) {
+    .page-wrap { grid-template-columns: 1fr; }
+    .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+    .hero, .section, .site-footer { padding-left: 22px; padding-right: 22px; }
+    .pillars-grid, .reading-grid { grid-template-columns: 1fr; }
+  }
+
+  .timeline-phases { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+  .phase-item { background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .phase-dot { width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: #fff; font-family: var(--mono); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+  .phase-name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+  .phase-sub { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+  @media (max-width: 860px) { .pillars-grid[style] { grid-template-columns: 1fr !important; } }
+
+  /* his visuals, recreated */
+  .quad-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 8px auto 18px; max-width: 560px; }
+  .quad-axis { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); font-weight: 700; text-align: center; }
+  .quad-mid { display: grid; grid-template-columns: 110px 1fr 110px; align-items: center; gap: 12px; width: 100%; }
+  .quad-mid .quad-axis { line-height: 1.4; }
+  .quad { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .quad-cell { aspect-ratio: 1 / 1; background: var(--ink); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 44px; font-weight: 800; }
+  .quad-cell.hot { background: var(--amber); }
+  .bomb-svg, .space-svg { width: 100%; height: auto; display: block; margin: 0 auto; }
+  .tbr { display: flex; align-items: stretch; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 8px 0 6px; }
+  .tbr-box { min-width: 130px; padding: 18px 26px; border-radius: 6px; font-size: 20px; font-weight: 800; text-align: center; letter-spacing: 0.02em; color: #fff; }
+  .tbr-arrow { align-self: center; font-size: 22px; color: var(--ink); }
+  .tbr-note { text-align: right; font-size: 12.5px; font-style: italic; color: #C83232; margin: 0 4px 14px; }
+  .trig-row { display: grid; grid-template-columns: 190px 1fr; border-left: 4px solid var(--amber); background: var(--surface-2); border-radius: 0 6px 6px 0; margin-bottom: 10px; }
+  .trig-row .t-name { padding: 16px 18px; }
+  .trig-row .t-name strong { display: block; font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--amber); }
+  .trig-row .t-name span { font-size: 12.5px; font-style: italic; color: var(--text-muted); }
+  .trig-row .t-desc { padding: 16px 18px; font-size: 14px; color: var(--text); align-self: center; }
+  .tm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .tm-box { background: var(--ink); border-radius: 8px; padding: 16px 18px; border-top: 3px solid var(--amber); }
+  .tm-box .tm-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--amber-bright); font-weight: 700; margin-bottom: 8px; }
+  .tm-box .tm-q { font-size: 13.5px; font-style: italic; color: rgba(255,255,255,0.78); line-height: 1.5; }
+  .tm-box .tm-a { font-size: 14px; color: #fff; line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.18); }
+  .tm-box .tm-a.empty { color: rgba(255,255,255,0.45); font-style: italic; }
+  .tm-box .tm-a small { display: block; margin-top: 8px; font-size: 12.5px; color: rgba(255,255,255,0.7); }
+  @media (max-width: 860px) { .quad-mid { grid-template-columns: 70px 1fr 70px; } .trig-row, .tm-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="belt">Evolved Man Hub &middot; My Plan</span>
+      <span class="title">End Defensiveness, Regulate Better</span>
+      <a href="index.html" class="back-link">&#8592; Evolved Man Hub</a>
+      <a href="https://stevepcox20.github.io/bmr-learning-hub/" class="back-link" style="margin-top:6px;">&#8592; Learning Hub home</a>
+    </div>
+    <span class="nav-section">On this page</span>
+    <ul class="sidebar-nav">
+      <li><a href="#fit">How the two fit</a></li>
+      <li><a href="#line">The one line</a></li>
+      <li><a href="#plug">Where it plugs in</a></li>
+      <li><a href="#journal">Journal prompts</a></li>
+      <li><a href="#sit">Sit with it</a></li>
+      <li><a href="#moment">In the moment</a></li>
+      <li><a href="#words">Words ready</a></li>
+      <li><a href="#rupture">After a rupture</a></li>
+      <li><a href="#chez">Tell Chez</a></li>
+      <li><a href="#weekly">Weekly review</a></li>
+      <li><a href="#limits">What it doesn't do</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+
+    <header class="hero">
+      <div class="hero-eyebrow">My Plan &middot; Built from two masterclasses</div>
+      <h1>End <em>Defensiveness</em>, Regulate Better</h1>
+      <p class="hero-desc">Not a summary of what Nick taught. What I'm actually going to do, using End of Defensiveness, Emotional Regulation for Married Men, and my own trigger map. It plugs into what I already do each day. The working copy lives in my daily doc.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="num">1</span><span class="label">Line to remember</span></div>
+        <div class="hero-stat"><span class="num">5</span><span class="label">Steps in the moment</span></div>
+        <div class="hero-stat"><span class="num">4</span><span class="label">Daily checks</span></div>
+      </div>
+    </header>
+
+    <!-- FIT -->
+    <section class="section" id="fit">
+      <div class="section-header">
+        <div class="section-num">&#9679;</div>
+        <div>
+          <h2 class="section-title">How the two masterclasses fit</h2>
+          <p class="section-subtitle">They overlap a lot. Here is what each one adds.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>Both are built on the same spine: <strong>widen the gap between what happens and what you do</strong> (Frankl), work on it outside the moment and inside it, and use breath, meditation and journaling. If you read them back to back that repetition is real. The plan uses each one for what only it gives you.</p>
+      </div>
+
+      <table class="ref-table">
+        <tr><th></th><th>End of Defensiveness</th><th>Emotional Regulation</th></tr>
+        <tr><td><strong>Only in this one</strong></td><td>The diagnostic question ("what did I just hear versus what was actually said?"). The four levers for lowering baseline pressure (meditation, exercise, nutrition, sleep). Emotional tolerance and the identity layer. Safe word, one topic at a time, the return window.</td><td>The bomb model and the three trigger types. The trigger map. Box breathing, grounding, the physiological sigh. The daily regulation stack. Ownership, impact, changed action. Game tape. The weeds.</td></tr>
+        <tr><td><strong>Used in my plan for</strong></td><td>Step 3 of the in-the-moment sequence, the sit-with-it practice, "one topic at a time"</td><td>The trigger map, the breath, the ladder, the after-a-rupture template, the weekly review</td></tr>
+      </table>
+
+      <div class="callout callout-ink">
+        <p><strong>What is not in here:</strong> the slide design, the offer and the sales structure. That lives in the vault as a reference for building my own workshop later.</p>
+      </div>
+    </section>
+
+    <!-- LINE -->
+    <section class="section" id="line">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div>
+          <h2 class="section-title">The one line</h2>
+          <p class="section-subtitle">If I only remember one thing</p>
+        </div>
+      </div>
+
+      <div class="card card-dark">
+        <h3>Plant my feet. One breath. What is she protecting?</h3>
+        <p>Then stay. Listen, don't fix, don't defend.</p>
+      </div>
+
+      <div class="card">
+        <p>My trigger map, short version: being told directly that I fell short, her tone and the ambush of old things coming up, and the belief that gets poked underneath. It shows up as heat in the face, a stomach drop and a clenched jaw. I bite back or shut down. The full map is at the top of the <a href="emotional-regulation.html#mine" style="color:var(--amber);font-weight:600;">Emotional Regulation page</a>.</p>
+        <p>"What is she protecting?" is the real question. Her anger is usually covering something more exposed: fear, not feeling safe, or not trusting that it won't happen again.</p>
+      </div>
+    </section>
+
+    <!-- PLUG -->
+    <section class="section" id="plug">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div>
+          <h2 class="section-title">Where it plugs in</h2>
+          <p class="section-subtitle">No new daily task unless it replaces something</p>
+        </div>
+      </div>
+
+      <table class="ref-table">
+        <tr><th>What I already do</th><th>What gets added</th></tr>
+        <tr><td><strong>Morning stillness and journaling</strong></td><td>One journal prompt of the day (below), then a 5-minute sit with what came up</td></tr>
+        <tr><td><strong>Talking with Chez each day</strong></td><td>Read the one line first, and pick two phrases (10 seconds)</td></tr>
+        <tr><td><strong>Any day</strong></td><td>Six seconds before answering whenever anyone says my name. No extra time.</td></tr>
+        <tr><td><strong>When a moment happens</strong></td><td>60-second review the same day, then the written version before the repair conversation</td></tr>
+        <tr><td><strong>Weekly review</strong></td><td>Three extra questions (below)</td></tr>
+      </table>
+    </section>
+
+    <!-- JOURNAL -->
+    <section class="section" id="journal">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div>
+          <h2 class="section-title">Journal prompts</h2>
+          <p class="section-subtitle">For holding on to things: anger about not doing a good job, and about where life is at</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>Pick one a day. Write it, don't fix it. The point of the page is to get what I'm carrying out of my head so it stops running the day.</p>
+        <ol>
+          <li>What am I holding onto right now? One sentence, no explaining.</li>
+          <li>Where is it in my body?</li>
+          <li>Who is this anger pointed at: what happened today, or me?</li>
+          <li>What standard am I measuring myself against? Who set it? Would I give it to someone else?</li>
+          <li>Facts only: what did I say I'd do this week, and what did I do? No grade, no story.</li>
+          <li>Where is my life at compared with where I thought it would be by now? Name the specific gap. Which one piece can I move this week?</li>
+          <li>What is the anger protecting?</li>
+          <li>What haven't I said out loud yet that I'd rather not say, and to who?</li>
+        </ol>
+      </div>
+
+      <div class="callout">
+        <p><strong>Once a week, 10 minutes:</strong> write the sentence my head says when I get defensive (for example "I'm a bad person" or "I'm doing a terrible job"). Then write the facts for it and the facts against it. Take that sentence to a BRN session focus or to Jade. This is the belief that gets poked, and it needs the identity-level work, not just tools.</p>
+      </div>
+    </section>
+
+    <!-- SIT -->
+    <section class="section" id="sit">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div>
+          <h2 class="section-title">Sit with it</h2>
+          <p class="section-subtitle">Focused meditation on what I'm holding, and practice sitting in discomfort</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>Right after the journal, 5 to 10 minutes.</p>
+        <ol>
+          <li><strong>Settle.</strong> Feet down. 4 in, hold 4, out 4, hold 4. Two minutes.</li>
+          <li><strong>Name it:</strong> "Right now I'm angry about ___."</li>
+          <li><strong>Find it in my body.</strong> Put my attention there. Don't change it.</li>
+          <li><strong>Stay for three minutes.</strong> When the story starts ("I did a bad job", "my life is..."), go back to the sensation. The job is to stay, not to fix it or feel better.</li>
+          <li><strong>Ask once:</strong> what is this protecting? Wait. Write one line.</li>
+          <li><strong>One breath.</strong> Done.</li>
+        </ol>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title">The ladder: build it, don't force it</div>
+        <div class="timeline-phases">
+          <div class="phase-item">
+            <div class="phase-dot">1</div>
+            <div class="phase-name">Weeks 1 and 2</div>
+            <div class="phase-sub">3-minute sit after the journal. Six seconds whenever anyone says my name.</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">2</div>
+            <div class="phase-name">Weeks 3 and 4</div>
+            <div class="phase-sub">5-minute sit. Once a day, stay 60 seconds longer than comfortable with a small irritation. Notice, breathe, don't act.</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">3</div>
+            <div class="phase-name">Week 5 on</div>
+            <div class="phase-sub">10-minute sit. Use the phrases with Chez in ordinary conversations, not only tense ones.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOMENT -->
+    <section class="section" id="moment">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div>
+          <h2 class="section-title">In the moment</h2>
+          <p class="section-subtitle">The five steps</p>
+        </div>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="timeline-phases">
+          <div class="phase-item">
+            <div class="phase-dot">1</div>
+            <div class="phase-name">Catch the body signal</div>
+            <div class="phase-sub">Heat in the face, stomach drop, jaw.</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">2</div>
+            <div class="phase-name">One breath, feet planted</div>
+            <div class="phase-sub">Six seconds. Physiological sigh if I need it: two quick breaths in, one long out.</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">3</div>
+            <div class="phase-name">Absorb</div>
+            <div class="phase-sub">Let her finish. Don't correct the facts yet. Ask: what did I just hear, and what was actually said?</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">4</div>
+            <div class="phase-name">Get curious</div>
+            <div class="phase-sub">Tell me more. What is she protecting?</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">5</div>
+            <div class="phase-name">Then respond</div>
+            <div class="phase-sub">If it's too much, say so, give a time, and come back.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4>If it's too much</h4>
+        <p>"I'm getting worked up and I don't want to react badly. I need ten minutes and then I'll come back." Give a real time and keep it. Going silent and leaving is the shutdown I'm trying to avoid.</p>
+        <h4>The three questions for this pattern</h4>
+        <ol>
+          <li>What am I about to do? (bite back, or shut down)</li>
+          <li>What do I usually do next? (explain, deflect, go silent)</li>
+          <li>What would my next level self do instead? (breath, what is she protecting, stay)</li>
+        </ol>
+      </div>
+
+      <div class="callout callout-ink">
+        <p><strong>When "you're doing a terrible job" lands:</strong> check whether it's her words or the belief underneath. The words are usually smaller than what I heard.</p>
+      </div>
+    </section>
+
+    <!-- WORDS -->
+    <section class="section" id="words">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div>
+          <h2 class="section-title">Words to have ready</h2>
+          <p class="section-subtitle">Prompts for my memory, not a script. Use her own words. Change anything that doesn't sound like me.</p>
+        </div>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-item">
+          <div class="pillar-name">To slow it down</div>
+          <div class="pillar-desc">Yeah. Okay.<br>Hang on, I want to get this right.<br>Say that again, I'm listening.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">To show I got it</div>
+          <div class="pillar-desc">Sounds like it felt like ___. (her words)<br>Yeah, that would've stung.<br>I didn't see it like that.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">To ask for the real thing</div>
+          <div class="pillar-desc">What was the worst part of that for you?<br>What did you need from me right then?<br>Did it feel like I wasn't there?</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">To own it (only if it's true)</div>
+          <div class="pillar-desc">I got that wrong.<br>I need ten minutes. I'm coming back.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RUPTURE -->
+    <section class="section" id="rupture">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div>
+          <h2 class="section-title">After a rupture</h2>
+          <p class="section-subtitle">Review it before the repair conversation, not after</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>60 seconds the same day, then write it out before I talk to her. Facts, one line each. What happened, and my part. Then the three columns:</p>
+      </div>
+
+      <div class="pillars-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="pillar-item">
+          <div class="pillar-name">Ownership</div>
+          <div class="pillar-desc">What I own. Only what's true.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">Impact</div>
+          <div class="pillar-desc">What it was like for her, in her words, not mine.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">Changed action</div>
+          <div class="pillar-desc">One specific thing I'll do differently.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>Then talk. Open with the ownership line. Don't relitigate the argument. Ask what she needs. If my mind goes blank when I go back, the page does the thinking, because critical thinking goes offline when I'm emotional.</p>
+        <p><strong>Game tape:</strong> once a week, compare the last blow-up or near miss with the ones before it. Sleep, work stress, time of day, was I over-explaining or minimising. Patterns show up. Then talk them through with her instead of white-knuckling it.</p>
+      </div>
+    </section>
+
+    <!-- CHEZ -->
+    <section class="section" id="chez">
+      <div class="section-header">
+        <div class="section-num">08</div>
+        <div>
+          <h2 class="section-title">Tell Chez</h2>
+          <p class="section-subtitle">One calm conversation, not in the middle of an argument</p>
+        </div>
+      </div>
+
+      <div class="quote-block">
+        <p>"I'm working on not getting defensive when you bring something to me. I'm going to take a breath before I answer, so I might go quiet for a few seconds. I'm listening. If it's too much I'll say so, give you a time, and come back. What would help you most when you're upset: me listening, or me helping fix it?"</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>If she raises several things at once:</strong> "Can we take one at a time so I can hear each one properly?" (from End of Defensiveness).</p>
+      </div>
+    </section>
+
+    <!-- WEEKLY -->
+    <section class="section" id="weekly">
+      <div class="section-header">
+        <div class="section-num">09</div>
+        <div>
+          <h2 class="section-title">Weekly review: three extra lines</h2>
+          <p class="section-subtitle">Added to the review I already do</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <ol>
+          <li>How many times did the trigger fire this week?</li>
+          <li>Did the one line run (breath, what is she protecting)? What happened?</li>
+          <li>Game tape: the last blow-up or near miss. Sleep, work stress, time of day. Was I over-explaining or minimising?</li>
+        </ol>
+        <p>A miss is data, not a verdict.</p>
+      </div>
+    </section>
+
+    <!-- LIMITS -->
+    <section class="section" id="limits">
+      <div class="section-header">
+        <div class="section-num">10</div>
+        <div>
+          <h2 class="section-title">What this doesn't do</h2>
+          <p class="section-subtitle">Tools handle the moment</p>
+        </div>
+      </div>
+
+      <div class="card card-accent">
+        <p>The tools buy space and give me something to do with it. The sentence underneath ("bad person", "terrible job") is what gets poked, and that gets worked in the NLH and BRN work with Jade. That's where the weekly belief sentence goes.</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Better Man Recovery &middot; Private study reference &middot; Not for distribution</p>
+    </footer>
+
+  </main>
+</div>
+
+</body>
+</html>

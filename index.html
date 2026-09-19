@@ -84,6 +84,9 @@
     .stats-bar { gap: 20px; }
     .stat-divider { display: none; }
   }
+  .plan-card { border: 2px solid var(--amber); background: var(--amber-faint); }
+  .plan-card .day-badge { background: var(--amber); color: #fff; }
+  .plan-card h3 { font-size: 20px; }
 </style>
 </head>
 <body>
@@ -117,6 +120,27 @@
   <div class="hub-callout">
     <div class="callout-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
     <p><strong>How to use this hub:</strong> Each card opens a full module page distilling one training session. Read to rebuild understanding fast, then run the comprehension check at the bottom of each page. New material gets added as it is transcribed and distilled.</p>
+  </div>
+
+  <div class="section-label">
+    <h2>My Plan</h2>
+  </div>
+
+  <div class="sessions-grid">
+    <a href="my-plan.html" class="session-card plan-card">
+      <div class="card-meta">
+        <span class="day-badge">My action plan</span>
+        <span class="status-dot" title="Live"></span>
+      </div>
+      <h3>My Plan: End Defensiveness, Regulate Better</h3>
+      <p>What I'm actually going to do, built from both masterclasses and my own trigger map. The one line, the daily prompts, the sit-with-it practice, the in-the-moment steps, words to have ready, and the after-a-rupture review.</p>
+      <div class="card-tags">
+        <span class="tag-amber">Personal plan</span>
+        <span class="tag">Journal prompts</span>
+        <span class="tag">After a rupture</span>
+      </div>
+      <div class="read-more">Open my plan &#8594;</div>
+    </a>
   </div>
 
   <div class="section-label">
