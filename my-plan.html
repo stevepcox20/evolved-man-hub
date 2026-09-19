@@ -193,6 +193,18 @@
   .tm-breakout p { color: #fff; font-size: 14.5px; line-height: 1.7; margin-bottom: 14px; }
   .tm-breakout p:last-child { margin-bottom: 0; }
   .tm-breakout p strong { color: var(--amber-bright); }
+  .tm-light .tm-box { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--amber); }
+  .tm-light .tm-box .tm-label { color: var(--amber); }
+  .tm-light .tm-box .tm-q { color: var(--text-muted); }
+  .tm-light .tm-box .tm-a { color: var(--text); border-top: 1px solid var(--border); }
+  .tm-panel { background: var(--amber-faint); border: 1px solid rgba(201,114,46,0.35); border-radius: 10px; padding: 22px 24px 24px; margin-top: 8px; }
+  .tm-panel .tm-panel-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); font-weight: 700; margin-bottom: 14px; }
+  .tm-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .tm-step { background: #fff; border: 1px solid rgba(201,114,46,0.28); border-radius: 8px; padding: 16px 18px; }
+  .tm-step h4 { font-size: 15px; font-weight: 800; color: var(--amber); margin-bottom: 10px; }
+  .tm-step p { font-size: 14px; line-height: 1.65; color: var(--text); margin-bottom: 10px; }
+  .tm-step p:last-child { margin-bottom: 0; }
+  @media (max-width: 860px) { .tm-steps { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -263,7 +275,7 @@
         </div>
       </div>
 
-      <div class="tm-grid">
+      <div class="tm-grid tm-light">
 
         <div class="tm-box">
           <div class="tm-label"><span class="tm-num">1</span>My #1 Situational Trigger</div>
@@ -303,25 +315,40 @@
 
       </div>
 
-      <div class="tm-breakout">
-        <div class="tm-label">My Commitment, continued</div>
-        <p><strong>Ask:</strong></p>
-        <p>"What did she actually say, and what did my trigger make me hear?"</p>
-        <p>Separate what Chez actually said from what my trigger made it mean.</p>
-        <p>Did she actually say I'm a bad person, I've failed her, I have no integrity, I don't care, or I'm doing a terrible job?</p>
-        <p>Or did what she said hit the wound underneath, and my brain filled in the rest?</p>
-        <p><strong>Then ask:</strong></p>
-        <p>"What is she protecting?"</p>
-        <p>Don't get stuck on the anger, frustration, tone or exact words. Look for what might be underneath them.</p>
-        <p>Is she hurt?<br>Scared?<br>Feeling unsafe?<br>Feeling unimportant?<br>Worried she can't trust me?<br>Feeling like I still don't understand the impact?</p>
-        <p>Don't dismiss what she's saying as "she's just triggered" or "she's lashing out."</p>
-        <p>Whatever the delivery looks like, try to understand the hurt, fear or need underneath it.</p>
-        <p><strong>Then STAY.</strong></p>
-        <p>Let her finish, even when I want to jump in.</p>
-        <p>Don't explain my intention yet.<br>Don't correct the details yet.<br>Don't tell her why I did it.<br>Don't try to make the discomfort go away.</p>
-        <p>Listen until I understand what this is like for her.</p>
-        <p><strong>Then respond.</strong></p>
-        <p>Understand first. My side can come after.</p>
+      <div class="tm-panel">
+        <div class="tm-panel-title">My Commitment, continued</div>
+        <div class="tm-steps">
+
+          <div class="tm-step">
+            <h4>Ask:</h4>
+            <p>"What did she actually say, and what did my trigger make me hear?"</p>
+            <p>Separate what Chez actually said from what my trigger made it mean.</p>
+            <p>Did she actually say I'm a bad person, I've failed her, I have no integrity, I don't care, or I'm doing a terrible job?</p>
+            <p>Or did what she said hit the wound underneath, and my brain filled in the rest?</p>
+          </div>
+
+          <div class="tm-step">
+            <h4>Then ask:</h4>
+            <p>"What is she protecting?"</p>
+            <p>Don't get stuck on the anger, frustration, tone or exact words. Look for what might be underneath them.</p>
+            <p>Is she hurt?<br>Scared?<br>Feeling unsafe?<br>Feeling unimportant?<br>Worried she can't trust me?<br>Feeling like I still don't understand the impact?</p>
+            <p>Don't dismiss what she's saying as "she's just triggered" or "she's lashing out."</p>
+            <p>Whatever the delivery looks like, try to understand the hurt, fear or need underneath it.</p>
+          </div>
+
+          <div class="tm-step">
+            <h4>Then STAY.</h4>
+            <p>Let her finish, even when I want to jump in.</p>
+            <p>Don't explain my intention yet.<br>Don't correct the details yet.<br>Don't tell her why I did it.<br>Don't try to make the discomfort go away.</p>
+            <p>Listen until I understand what this is like for her.</p>
+          </div>
+
+          <div class="tm-step">
+            <h4>Then respond.</h4>
+            <p>Understand first. My side can come after.</p>
+          </div>
+
+        </div>
       </div>
     </section>
 
