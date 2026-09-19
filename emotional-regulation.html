@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Emotional Regulation for Married Men &middot; Evolved Man Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #23262B;
+    --ink-light: #4A5568;
+    --ink-faint: #ECEAE6;
+    --ink-tint: #DFDCD6;
+    --amber: #C9722E;
+    --amber-bright: #E08D3C;
+    --amber-faint: #FBEEE0;
+    --ground: #EDEAE2;
+    --surface: #FCFBF9;
+    --surface-2: #F3F1EC;
+    --text: #211F1C;
+    --text-muted: #6B655D;
+    --border: rgba(35,38,43,0.13);
+    --border-strong: rgba(35,38,43,0.26);
+    --red-faint: rgba(200,50,50,0.07);
+    --red-border: rgba(200,50,50,0.2);
+    --green-faint: rgba(30,140,80,0.08);
+    --green-border: rgba(30,140,80,0.2);
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ground);
+    color: var(--text);
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .page-wrap { display: grid; grid-template-columns: 232px 1fr; min-height: 100vh; }
+
+  .sidebar {
+    position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    background: var(--surface); border-right: 1px solid var(--border);
+    padding: 24px 0; display: flex; flex-direction: column;
+    scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  }
+  .sidebar-logo { padding: 0 18px 20px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
+  .sidebar-logo .belt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); font-weight: 600; display: block; margin-bottom: 4px; }
+  .sidebar-logo .title { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+  .sidebar-logo .back-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 12px; color: var(--ink); text-decoration: none; font-weight: 600; background: var(--ink-faint); border: 1px solid var(--border-strong); border-radius: 6px; padding: 7px 12px; }
+  .sidebar-logo .back-link:hover { background: var(--ink-tint); }
+  .sidebar-nav { list-style: none; padding: 0; }
+  .sidebar-nav li a { display: block; padding: 7px 18px; font-size: 12px; font-weight: 500; color: var(--text-muted); text-decoration: none; border-left: 2px solid transparent; transition: color 0.12s, border-color 0.12s, background 0.12s; line-height: 1.4; }
+  .sidebar-nav li a:hover { color: var(--ink); background: var(--ink-tint); border-left-color: var(--amber); }
+  .nav-section { display: flex; align-items: center; gap: 8px; margin: 18px 12px 8px; padding: 10px 12px; background: var(--ink); color: #fff; border-radius: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; }
+
+  .main { min-width: 0; }
+
+  .hero { background: var(--ink); padding: 60px 52px 52px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; bottom: -80px; right: -80px; width: 360px; height: 360px; border-radius: 50%; background: rgba(255,255,255,0.03); pointer-events: none; }
+  .hero-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber-bright); font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .hero-eyebrow::after { content: ''; display: block; height: 1px; width: 36px; background: var(--amber-bright); opacity: 0.6; }
+  .hero h1 { font-size: clamp(32px, 4.5vw, 50px); font-weight: 800; line-height: 1.1; color: #ffffff; margin-bottom: 18px; letter-spacing: -0.02em; }
+  .hero h1 em { font-style: italic; color: var(--amber-bright); font-weight: 700; }
+  .hero-desc { font-size: 15px; color: rgba(255,255,255,0.72); max-width: 560px; line-height: 1.7; margin-bottom: 36px; }
+  .hero-stats { display: flex; gap: 36px; flex-wrap: wrap; }
+  .hero-stat { display: flex; flex-direction: column; gap: 3px; }
+  .hero-stat .num { font-size: 28px; font-weight: 800; color: var(--amber-bright); line-height: 1; letter-spacing: -0.02em; }
+  .hero-stat .label { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; }
+
+  .section { padding: 48px 52px; border-bottom: 1px solid var(--border); }
+  .section-header { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 32px; }
+  .section-num { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--amber); letter-spacing: 0.1em; margin-top: 7px; flex-shrink: 0; width: 26px; }
+  .section-title { font-size: 26px; font-weight: 800; color: var(--ink); line-height: 1.2; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .section-subtitle { font-size: 13px; color: var(--text-muted); }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px 28px; margin-bottom: 16px; }
+  .card h3 { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+  .card h4 { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink); margin-bottom: 8px; margin-top: 20px; opacity: 0.7; }
+  .card h4:first-child { margin-top: 0; }
+  .card p { font-size: 14px; line-height: 1.7; color: var(--text); margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .card ul, .card ol { padding-left: 20px; margin-bottom: 10px; }
+  .card li { font-size: 14px; line-height: 1.65; color: var(--text); margin-bottom: 5px; }
+  .card strong { font-weight: 700; color: var(--ink); }
+  .card em { color: var(--amber); font-style: italic; }
+  .card-accent { background: var(--ink-faint); border-color: var(--border-strong); border-left: 3px solid var(--amber); }
+  .card-dark { background: var(--ink); border-color: transparent; }
+  .card-dark h3 { color: #fff; }
+  .card-dark h4 { color: var(--amber-bright); opacity: 1; }
+  .card-dark p, .card-dark li { color: rgba(255,255,255,0.85); }
+  .card-dark strong { color: #fff; }
+
+  .quote-block { background: var(--ink-faint); border-left: 3px solid var(--ink); padding: 18px 22px; margin-bottom: 14px; border-radius: 0 6px 6px 0; }
+  .quote-block p { font-size: 16px; font-weight: 600; font-style: italic; color: var(--ink); line-height: 1.55; margin: 0; }
+
+  .callout { background: var(--amber-faint); border: 1px solid rgba(201,114,46,0.22); border-radius: 8px; padding: 16px 20px; margin-bottom: 16px; }
+  .callout p { font-size: 14px; color: var(--text); margin: 0; line-height: 1.6; }
+  .callout strong { color: var(--amber); font-weight: 700; }
+  .callout-ink { background: var(--ink-faint); border-color: var(--border-strong); }
+  .callout-ink p { color: var(--ink); font-weight: 500; }
+  .callout-ink strong { color: var(--ink); }
+
+  .ref-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; font-size: 13.5px; }
+  .ref-table th { background: var(--ink); color: #fff; text-align: left; padding: 11px 16px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 600; }
+  .ref-table td { padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; }
+  .ref-table tr:last-child td { border-bottom: none; }
+  .ref-table tr:nth-child(even) td { background: var(--ink-faint); }
+  .ref-table td strong { color: var(--ink); }
+
+  .diagram-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 28px; margin-bottom: 20px; }
+  .diagram-title { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; opacity: 0.7; }
+  .diagram-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+  .pillar-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px; border-top: 3px solid var(--amber); }
+  .pillar-item .pillar-name { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .pillar-item .pillar-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+  .reading-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+  .reading-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px; border-top: 3px solid var(--ink-light); }
+  .reading-item .r-title { font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 8px; line-height: 1.3; }
+  .reading-item .r-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+
+  .quiz-intro { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+  .quiz-q { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 22px 26px; margin-bottom: 16px; }
+  .quiz-q .q-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); font-weight: 700; display: block; margin-bottom: 8px; }
+  .quiz-q .q-text { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 14px; line-height: 1.5; }
+  .quiz-q .options { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-q .opt { text-align: left; background: var(--ground); border: 1px solid var(--border); border-radius: 6px; padding: 11px 15px; font-family: 'Figtree', sans-serif; font-size: 13.5px; line-height: 1.5; color: var(--text); cursor: pointer; transition: border-color 0.12s, background 0.12s; }
+  .quiz-q .opt:hover { border-color: var(--ink-light); background: var(--ink-faint); }
+  .quiz-q .opt.correct { background: var(--green-faint); border-color: #2ba84a; color: #1a5030; font-weight: 600; }
+  .quiz-q .opt.incorrect { background: var(--red-faint); border-color: #c03030; color: #7a2020; }
+  .quiz-q .opt:disabled { cursor: default; }
+  .quiz-q .q-result { margin-top: 12px; font-size: 13px; line-height: 1.6; display: none; padding: 12px 16px; border-radius: 6px; }
+  .quiz-q .q-result.show { display: block; }
+  .quiz-q .q-result.right { background: var(--green-faint); border: 1px solid var(--green-border); color: #1a5030; }
+  .quiz-q .q-result.wrong { background: var(--red-faint); border: 1px solid var(--red-border); color: #7a2020; }
+
+  .site-footer { background: var(--surface); padding: 24px 52px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .site-footer p { font-size: 12px; color: var(--text-muted); }
+  .site-footer a { font-size: 12px; color: var(--amber); text-decoration: none; font-weight: 600; }
+  .site-footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 860px) {
+    .page-wrap { grid-template-columns: 1fr; }
+    .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+    .hero, .section, .site-footer { padding-left: 22px; padding-right: 22px; }
+    .pillars-grid, .reading-grid { grid-template-columns: 1fr; }
+  }
+
+  .timeline-phases { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+  .phase-item { background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .phase-dot { width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: #fff; font-family: var(--mono); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+  .phase-name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+  .phase-sub { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+  @media (max-width: 860px) { .pillars-grid[style] { grid-template-columns: 1fr !important; } }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="belt">Evolved Man Hub &middot; Nick Matiash</span>
+      <span class="title">Emotional Regulation for Married Men</span>
+      <a href="index.html" class="back-link">&#8592; Evolved Man Hub</a>
+      <a href="https://stevepcox20.github.io/bmr-learning-hub/" class="back-link" style="margin-top:6px;">&#8592; Learning Hub home</a>
+    </div>
+    <span class="nav-section">On this page</span>
+    <ul class="sidebar-nav">
+      <li><a href="#protocol">The Protocol</a></li>
+      <li><a href="#s1">The Skill Gap</a></li>
+      <li><a href="#s2">Where You Started (The Grid)</a></li>
+      <li><a href="#s3">The Bomb Model</a></li>
+      <li><a href="#s4">Triggers and Body Signals</a></li>
+      <li><a href="#s5">The Six-Second Gap</a></li>
+      <li><a href="#s6">The Trigger Map</a></li>
+      <li><a href="#s7">The Daily Regulation Stack</a></li>
+      <li><a href="#s8">Practical Tools From Q+A</a></li>
+      <li><a href="#s9">Recommended Reading</a></li>
+      <li><a href="#quiz">Comprehension check</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+
+    <header class="hero">
+      <div class="hero-eyebrow">Evolved Man Society &middot; Masterclass &middot; 2026-09-16</div>
+      <h1>Emotional <em>Regulation</em> for Married Men</h1>
+      <p class="hero-desc">A live masterclass from Nick Matiash (The Evolved Man): why keeping your cool under pressure is a missing skill and not a character flaw, the bomb model for what happens between trigger and reaction, the six-second gap, and the daily habits that make the in-the-moment tools reachable.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="num">9</span><span class="label">Sections</span></div>
+        <div class="hero-stat"><span class="num">12</span><span class="label">Quiz questions</span></div>
+        <div class="hero-stat"><span class="num">97</span><span class="label">Minutes, incl. live Q+A</span></div>
+      </div>
+    </header>
+
+    <!-- PROTOCOL -->
+    <section class="section" id="protocol">
+      <div class="section-header">
+        <div class="section-num">&#9679;</div>
+        <div>
+          <h2 class="section-title">The Protocol, Step By Step</h2>
+          <p class="section-subtitle">Everything below in one sequence. Sections 1&#8211;8 give the why behind each step.</p>
+        </div>
+      </div>
+
+      <div class="card card-accent">
+        <h3>Set up once</h3>
+        <ol>
+          <li><strong>Fill in your trigger map</strong> (Section 6). Six boxes: situational trigger, relational trigger, historical trigger, body signal, default reaction, commitment. Keep it somewhere you'll see it. Awareness plus a commitment is the point, so don't file it away.</li>
+          <li><strong>Tell your wife about the pause</strong> before you use it. Pick a calm moment and say you're practising taking a breath before responding, and it may look like you've gone quiet. That turns the pause into something you've told her you'll do.</li>
+        </ol>
+      </div>
+
+      <div class="card card-accent">
+        <h3>Ongoing: outside the moment</h3>
+        <p>This determines whether the in-the-moment steps are reachable at all.</p>
+        <ol>
+          <li><strong>Morning:</strong> stillness, journaling, some movement, before you reach for your phone. No feed, no email, no texts first.</li>
+          <li><strong>During the day:</strong> when something feels off, process it. Ask why you're frustrated and name it. Say it out loud to someone you trust, your wife included.</li>
+          <li><strong>Before you walk in the door:</strong> a transition ritual. A song that shifts your energy, or a quiet drive with nothing on. Decide who you're going to be at home.</li>
+          <li><strong>After a rupture:</strong> don't move on. Debrief with yourself (what happened, what was my role, what do I own, what would I do differently), then have the conversation with her.</li>
+          <li><strong>Low-stakes reps of the pause:</strong> when anyone says your name, give it a full six seconds before you answer. At work, with your kids, anywhere it doesn't matter.</li>
+          <li><strong>Sit in discomfort on purpose:</strong> meditation is the one he calls the powerful X factor most men skip. Start small and stay a little longer than is comfortable.</li>
+        </ol>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title">In the moment: when the trigger fires</div>
+        <div class="timeline-phases">
+          <div class="phase-item">
+            <div class="phase-dot">1</div>
+            <div class="phase-name">Catch the body signal</div>
+            <div class="phase-sub">Chest tight, jaw clenching, shallow breath, heat rising. Your body knows before your brain does.</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">2</div>
+            <div class="phase-name">Buy six seconds</div>
+            <div class="phase-sub">One deep breath. Or box breathing, the physiological sigh, or grounding (Section 5).</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">3</div>
+            <div class="phase-name">Absorb, don't argue</div>
+            <div class="phase-sub">Let her finish. She can't take in your facts while she's emotionally up.</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">4</div>
+            <div class="phase-name">Get curious</div>
+            <div class="phase-sub">"Where is this coming from? Tell me more." Look for the thing behind the thing.</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">5</div>
+            <div class="phase-name">Then respond</div>
+            <div class="phase-sub">Once she has landed, "can I share my side?" Or narrate: "I'm feeling tense. How are you doing?"</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>If this is what's happening</h3>
+        <ul>
+          <li><strong>You feel wrongfully accused</strong> &rarr; absorb first, discuss after the emotion clears (Section 8).</li>
+          <li><strong>Your mind goes blank when you go back to repair</strong> &rarr; write it down first in three columns: what I own, the impact on her, the changed action (Section 8).</li>
+          <li><strong>You can't sit in the same room after a fight</strong> &rarr; narrate how you're feeling out loud, without relitigating the argument (Section 8).</li>
+          <li><strong>You're better, but it still explodes every few weeks</strong> &rarr; watch the game tape: compare the last few blow-ups for patterns like sleep, work stress, family (Section 8).</li>
+          <li><strong>The same issue keeps coming back to the surface</strong> &rarr; you've mowed the weeds without pulling the root (Section 8).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 1 -->
+    <section class="section" id="s1">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div>
+          <h2 class="section-title">The Skill Gap</h2>
+          <p class="section-subtitle">Not a character flaw. A missing skill, and nobody taught it.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>His core reframe, made in the first ten minutes and returned to all night: <strong>losing your cool is not a sign you're a bad man. It's a skill you were never taught.</strong> The men who show up to this kind of thing are hard-working and care about their family. They also don't like life's inconveniences, and they have no method for the discomfort that comes with them.</p>
+        <p>The cost of not having the skill is a three-part pattern: <strong>running away when things get tense, blowing up when someone pushes your buttons, shutting down when it all feels like too much.</strong> The guilt and shame afterward are a second layer on top of the pattern. He names removing that layer as one of the goals.</p>
+      </div>
+
+      <div class="quote-block">
+        <p>You didn't invent this pattern. You inherited it.</p>
+      </div>
+
+      <div class="card">
+        <h4>Why this reframe matters</h4>
+        <p>For thousands of years a man's job was protect and provide, and it worked. The emotional skills got filed under unnecessary. Empathy (understanding what she feels without needing to fix it), communication (saying what you mean without making it a weapon), conflict resolution (staying in the hard conversation without blowing up or shutting down) and emotional intelligence (knowing what you feel before it comes out sideways) were never priorities in how boys were raised.</p>
+        <p>The result is generations of men who are good at showing up and underdeveloped at connecting. That's your dad, and his dad. It isn't ancient history.</p>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title">The cruel irony: two opposite rulebooks</div>
+        <table class="ref-table">
+          <tr><th>What built your career</th><th>What builds a marriage</th></tr>
+          <tr><td>Suppress and push through</td><td>Feel it and express it</td></tr>
+          <tr><td>Stay composed, don't show weakness</td><td>Be vulnerable and show up open</td></tr>
+          <tr><td>Win the argument</td><td>Understand before responding</td></tr>
+          <tr><td>Perform under pressure</td><td>Be present when it's uncomfortable</td></tr>
+        </table>
+        <p style="font-size:13.5px;color:var(--text-muted);">The disconnect: a man who genuinely wants to be great for his wife and kids, with a skill set that was never built for it. That creates the confusion he feels ("I know I shouldn't be defensive, and here I am again") and the frustration she feels ("it keeps happening"). It is a gap, and a gap can be closed.</p>
+      </div>
+
+      <div class="callout callout-ink">
+        <p><strong>His three conditions for getting anything from the session:</strong> honesty (no justifying, no minimising, the truth about where you are), ownership (something in you needs to change, own that), and openness (what you learn only works if you try it, and if what you've tried hasn't worked, you're open to something different).</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section" id="s2">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div>
+          <h2 class="section-title">Where You Started (The Grid)</h2>
+          <p class="section-subtitle">Two axes that show why emotional skills are a hard starting point for most men</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>A 2x2. The vertical axis is whether vulnerability was <strong>encouraged or discouraged</strong> when you were a boy. The horizontal axis is whether your father was <strong>emotionally closed or emotionally open</strong>.</p>
+        <table class="ref-table">
+          <tr><th></th><th>Father emotionally closed</th><th>Father emotionally open</th></tr>
+          <tr><td><strong>Vulnerability encouraged</strong></td><td>A</td><td>B (the best starting point: someone said "let's talk about how I'm feeling")</td></tr>
+          <tr><td><strong>Vulnerability discouraged</strong></td><td>C ("suck it up, I don't want to see you cry")</td><td>D</td></tr>
+        </table>
+        <p>Most men in the room landed in <strong>C</strong>. He says it plainly: not a criticism of your dad, who did the best with what his own generation gave him. His point is that C is a poor starting position for becoming an open, emotionally available, non-defensive husband, and seeing it is the first step. From there you can build the encouragement to be vulnerable and become the emotionally open father for your own kids.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>Use it as a question, not a verdict:</strong> which quadrant did you grow up in, and what did that teach you about what emotions are for? The answer explains a lot about your default reaction.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section" id="s3">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div>
+          <h2 class="section-title">The Bomb Model</h2>
+          <p class="section-subtitle">Trigger, build, reaction. Work backwards from the reaction.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>His central image: <strong>you have a bomb inside you.</strong> Not because you're toxic, but because of pent-up emotion you haven't processed. Three parts: the <strong>trigger</strong> (the spark), the <strong>build</strong> (the fuse burning), and the <strong>reaction</strong> (the bomb going off: defensiveness, shutdown, running away).</p>
+        <p><strong>Most men only notice the reaction.</strong> They see the urge to fight or flee, not the spark and not the build. That's why they keep trying to change the reaction and keep failing. Change lives earlier.</p>
+      </div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-title">The three-step job</div>
+        <div class="timeline-phases">
+          <div class="phase-item">
+            <div class="phase-dot">1</div>
+            <div class="phase-name">Understand the trigger</div>
+            <div class="phase-sub">Know what sets it off (Section 4) so you can see it coming.</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">2</div>
+            <div class="phase-name">Lengthen the fuse</div>
+            <div class="phase-sub">Create space between spark and reaction (Section 5).</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-dot">3</div>
+            <div class="phase-name">Dismantle the bomb</div>
+            <div class="phase-sub">Process what's stored so there is less to detonate (Section 7).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-block">
+        <p>It's not your fault that the bomb exists, but it is your responsibility to work on dismantling it.</p>
+      </div>
+
+      <div class="callout callout-ink">
+        <p><strong>Where this sits relative to BMR:</strong> the bomb model is a behavioural and habit-level version of what MUD and the Identity Set Point work at the root. It gives you tools to buy space and process regularly, but it doesn't address why the charge is there in the first place. Use it as a stabilisation layer, the same way the Relationship Rescue tier works.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="section" id="s4">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div>
+          <h2 class="section-title">Triggers and Body Signals</h2>
+          <p class="section-subtitle">Three kinds, four common ones, and where they show up in your body</p>
+        </div>
+      </div>
+
+      <div class="pillars-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="pillar-item">
+          <div class="pillar-name">Situational</div>
+          <div class="pillar-desc"><strong>What happened.</strong> She said the wrong thing, the timing was bad, something didn't go your way. The circumstances, taken alone.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">Relational</div>
+          <div class="pillar-desc"><strong>Who said it.</strong> The same words from a stranger land differently than from your wife.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">Historical</div>
+          <div class="pillar-desc"><strong>What it reminds you of.</strong> An old wound, a past relationship, something from five years ago in this marriage that this moment feels like.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4>Why being most triggered by your wife is normal</h4>
+        <p>You care about her opinion more than anyone's, and she's the closest person to you, so you assume she knows you best. Her feedback then feels like an honest account of who you are, and the defences come up. It doesn't mean you dislike her more than others. It's the dynamic. Knowing which of the three types shows up most in your marriage is useful.</p>
+      </div>
+
+      <div class="card">
+        <h4>Four common triggers in married men</h4>
+        <ul>
+          <li><strong>Feeling disrespected.</strong> The biggest one. Especially in front of the kids or in public.</li>
+          <li><strong>Feeling controlled.</strong> Being told what to do by the person who's supposed to be your partner. Micromanaging, "this is the right way."</li>
+          <li><strong>Feeling like you're failing.</strong> Something implies or you infer that you aren't doing enough or aren't enough. It doesn't have to be said out loud, and usually isn't.</li>
+          <li><strong>Feeling unappreciated.</strong> You give everything and it never feels like enough. He says this is the big one lately.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>Body signals</h4>
+        <p>Your body knows before your brain does. You probably won't catch the first spark. You'll catch the physical signal partway through: tightness in the chest, jaw clenching, shoulders, shallow breath, heat in the face, a gut drop. The better you know your own signal, the earlier you can interrupt before the reaction.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>The thing behind the thing:</strong> "It's never the thing. It's the thing behind the thing." If she complains about the laundry, the content may be valid or not, but there's usually something underneath. Getting swept into the content of what she says is how you end up defending against the wrong target.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="section" id="s5">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div>
+          <h2 class="section-title">The Six-Second Gap</h2>
+          <p class="section-subtitle">Frankl's space, and three tools that let the body lead</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p><strong>The six-second rule.</strong> His claim: six seconds is how long it takes cortisol, the stress hormone, to peak and begin to subside. The entire regulation game is creating six seconds of space between trigger and response. It feels long in the moment, but it's about one deep breath. If you can absorb what was said and breathe without stacking more cortisol on top, you have a much better shot at responding on purpose. <em>The gap is where your best self lives.</em></p>
+      </div>
+
+      <div class="callout callout-ink">
+        <p><strong>Treat the six-second figure as a working rule, not a citation.</strong> He presents it as neuroscience without a source. The practical point (a short pause changes what you do next) doesn't depend on the exact number.</p>
+      </div>
+
+      <div class="quote-block">
+        <p>"Between stimulus and response there is a space. In that space is our power to choose our response. In our response lies our growth and our freedom." Viktor Frankl</p>
+      </div>
+
+      <div class="card">
+        <p>Frankl was a psychiatrist and a Holocaust survivor, which is why the quote carries weight: the stimulus in front of him was atrocious, and how he responded was still a choice. In a marriage the scale is far smaller, but the mechanism is the same. If there is no space between what she says and how you respond, you're quick-witted, shooting from the hip, and reactive by default. More space means more freedom and more growth.</p>
+      </div>
+
+      <h4 style="font-family:var(--mono);font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--ink);opacity:0.7;margin:8px 0 12px;">The body has to lead: your mind can't calm down until your body does</h4>
+      <div class="pillars-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="pillar-item">
+          <div class="pillar-name">Box breathing</div>
+          <div class="pillar-desc">Four counts in, hold four, out four, hold four, repeat. Activates the parasympathetic nervous system. Works anywhere, including mid-conversation without her knowing, or on a three to five minute break.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">Grounding</div>
+          <div class="pillar-desc">Use your senses to pull you out of the threat response. Feel your feet on the floor, name five things you can see, then things you can hear and smell. Senses keep you where you are.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">Physiological sigh</div>
+          <div class="pillar-desc">Two quick inhales followed by a slow exhale through the mouth, as if breathing out through a straw. His "Swiss Army knife": simple, and it works to shock the nervous system toward regulated.</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p><strong>You can't trick yourself into calm.</strong> The tools work on the body first, so the mind can follow.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="section" id="s6">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div>
+          <h2 class="section-title">The Trigger Map</h2>
+          <p class="section-subtitle">The live exercise: six boxes, three to five minutes, with a pen</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>The exercise takes the whole first half and makes it personal. Fill in six boxes:</p>
+        <table class="ref-table">
+          <tr><th>Box</th><th>The question</th></tr>
+          <tr><td><strong>My #1 situational trigger</strong></td><td>What situation sets me off most reliably?</td></tr>
+          <tr><td><strong>My #1 relational trigger</strong></td><td>What does she say or do that activates me?</td></tr>
+          <tr><td><strong>My #1 historical trigger</strong></td><td>What old wound is this connecting to?</td></tr>
+          <tr><td><strong>My body signal</strong></td><td>Where do I first feel it? What does it feel like?</td></tr>
+          <tr><td><strong>My default reaction</strong></td><td>What do I do when triggered? Explode, disappear, go numb, fight, flight or freeze?</td></tr>
+          <tr><td><strong>My commitment</strong></td><td>What will I do differently starting tonight?</td></tr>
+        </table>
+        <p>His reasoning for the last box: building awareness is useful, but change starts when you decide how you'll move tomorrow because of what you now know. <strong>Awareness plus commitment</strong> is the pairing. He asks you to take the map with you and use it, not shelve it.</p>
+      </div>
+
+      <div class="card">
+        <h4>What came up in the room</h4>
+        <ul>
+          <li>Someone described the relational trigger as the feeling that his character is being questioned, as if he's lying. Nick's answer: look at the thing behind the thing.</li>
+          <li>Several men noted that when a problem shows up they try to solve it fast, which he reads as trying to get out of the discomfort quickly while looking noble. His counter: the best solution comes after gathering all the information, the way a doctor asks questions before deciding treatment. That means staying in the conversation and listening longer.</li>
+          <li>On defensiveness rising when you're caught off guard: <strong>surprise is one of the bigger causes.</strong> If you're prepared and bringing things up proactively, there's less chance of being ambushed by her feedback.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="section" id="s7">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div>
+          <h2 class="section-title">The Daily Regulation Stack</h2>
+          <p class="section-subtitle">How to prevent it, not just handle it</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>Everything so far handles the moment. This is the proactive half: <strong>healthy habits create more options when conflict arrives.</strong> It doesn't need to be every single day. A system for looking after yourself, checking in on how you feel, and reading the room is what stops you from floating from work to dinner to bed and hitting more speed bumps than you'd like.</p>
+      </div>
+
+      <table class="ref-table">
+        <tr><th>When</th><th>What</th><th>Why</th></tr>
+        <tr><td><strong>Morning</strong></td><td>Stillness, journaling, some movement, before you touch your phone</td><td>If you start the day responding to the world you build the habit of reactivity. Space in the morning practises space between stimulus and response.</td></tr>
+        <tr><td><strong>Through the day</strong></td><td>When something feels off, process it. Ask why you're frustrated. Name it out loud or tell someone.</td><td>Processing doesn't need twenty minutes of meditation. He did this in a hotel with three small kids while their house was on the market: he told his wife it was hard and he was tense, and why.</td></tr>
+        <tr><td><strong>Before walking in the door</strong></td><td>A transition ritual: a song, or a quiet drive with nothing on</td><td>If work bleeds straight into home you bring work-you into the house. Choose who you're going to be.</td></tr>
+        <tr><td><strong>After a rupture</strong></td><td>Debrief with yourself, then with her: what happened, what was my role, what do I own, what will I do differently</td><td>Sweeping it under the rug makes the next one harder.</td></tr>
+      </table>
+
+      <div class="quote-block">
+        <p>The regulated man doesn't just react less. He leads more. He leads through his energy in crisis and his behaviour outside of it.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="section" id="s8">
+      <div class="section-header">
+        <div class="section-num">08</div>
+        <div>
+          <h2 class="section-title">Practical Tools From Q+A</h2>
+          <p class="section-subtitle">What came out of the live audience questions, not the prepared content</p>
+        </div>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-item">
+          <div class="pillar-name">When you feel wrongfully accused</div>
+          <div class="pillar-desc">Absorb it, let the emotion dissipate, then discuss. Say "I hear you, tell me more about what you mean." Once she has said it all, ask "can I share my perspective?" The mistake is jumping to disproving and discrediting, which turns it into "I'm pissed" on both sides. <strong>The brain can't think critically while it's emotionally up.</strong> That's a human thing, not a woman thing, so your job is to be the place her emotion can come down first.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">Sitting in the same room after a fight</div>
+          <div class="pillar-desc"><strong>Inside the moment:</strong> narrate how you're experiencing things, kindly. "I want to be here with you. I'm feeling a little tense. How are you doing?" Not about who was right in the argument. Silence and stories in your head keep you dysregulated. <strong>Outside the moment:</strong> practise sitting in discomfort on purpose. Meditation especially, starting small.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">Using the six-second rule mid-fight</div>
+          <div class="pillar-desc">You can't change a pattern while you're in it. Tell her beforehand, calmly, what you're doing: "I'm going to try to give myself a breath before I respond. I might look like I've stopped engaging, but I'm working on it." That gives you a bit of accountability. Then practise in low-stakes moments: <strong>when anyone says your name, take a full six seconds.</strong> Practising only in the hard conversations is like trying to hit a 100mph fastball without hitting off the tee first.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">Going back to repair and your brain goes blank</div>
+          <div class="pillar-desc">Your critical thinking goes offline when you're emotional, so don't rely on it. <strong>Write it down first in three columns: Ownership, Impact, Changed action.</strong> What do I need to own, what impact did it have on her, what will I do so it doesn't happen again. Bring the page. Also: a blueprint and being able to build the house are different things. That's what support is for, and it doesn't make you a lesser man.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">A betrayal that keeps coming back (the weeds)</div>
+          <div class="pillar-desc">If it resurfaces in every disagreement, you've mowed the weeds without pulling the root. Moving past it faster than you needed to often leaves the root in. Lean toward it: "This is the elephant. I don't enjoy it, but it matters. What am I missing?" That's the opposite of hoping she doesn't bring it up.</div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-name">Progress but still exploding every couple of weeks</div>
+          <div class="pillar-desc">Both are true. Fewer blow-ups is growth: every day, then every week, then every three weeks. But don't stop looking at the content. <strong>Watch game tape.</strong> Compare the last few blow-ups. Sleep-deprived? Anxious from work? Wound up by extended family? Patterns show up. Then talk them through with her instead of white-knuckling for three more weeks.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4>Affairs as a loop</h4>
+        <p>His read: most affairs follow a loop. You did the thing, you regret it, but it felt novel and fun, and it comes paired with shame. The strong feelings fade, you go back into a relationship that's tense and a bit mundane, and the cycle repeats, much like an addiction loop. Seeing it that way, instead of "I'm an idiot and should shame myself into oblivion," points to the fix: <strong>break away and put something new into the loop.</strong> He says it takes humility, hard work and more time than you'd think. The same principles from the session apply, but the conversations are more raw.</p>
+      </div>
+
+      <div class="card">
+        <h4>Other answers worth keeping</h4>
+        <ul>
+          <li><strong>Separation and the "plague of vague."</strong> If there was no explicit conversation about what separation would look like, it's hard to say the other person betrayed you. The gap in expectations is the problem. Forgiveness is possible and not the same as letting someone off the hook. Forgetting almost never happens, so you'll still feel triggers and can say so: "This came up for me today."</li>
+          <li><strong>Modelling for your kids.</strong> His five-year-old ran into another room to hide big feelings because he'd never seen his dad feel them: Nick was always the sturdy one. He now deliberately lets his kids see him get emotional in repair conversations. Information is good, modelling is better.</li>
+          <li><strong>"If I lead she fights for control, if I give her the reins she resents it."</strong> Reframe leadership from certainty and "just follow" to consideration, collaboration and communication.</li>
+          <li><strong>Practising safely.</strong> The practice doesn't have to be intense. Giving space and getting curious in non-tense moments counts. One attendee suggested using AI to simulate difficult scenarios for reps. Nick hadn't considered it and was open to it.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 9 -->
+    <section class="section" id="s9">
+      <div class="section-header">
+        <div class="section-num">09</div>
+        <div>
+          <h2 class="section-title">Recommended Reading</h2>
+          <p class="section-subtitle">What he named during the session</p>
+        </div>
+      </div>
+
+      <div class="reading-grid">
+        <div class="reading-item">
+          <div class="r-title">Man's Search for Meaning<br><span style="font-weight:400;font-size:12px;color:var(--text-muted);">Viktor Frankl</span></div>
+          <div class="r-desc">Source of the stimulus-and-response quote. He gives it to the men he works with.</div>
+        </div>
+        <div class="reading-item">
+          <div class="r-title">Nonviolent Communication<br><span style="font-weight:400;font-size:12px;color:var(--text-muted);">Marshall Rosenberg</span></div>
+          <div class="r-desc">His answer when asked for a book on emotional regulation and controlling actions. He says the title sounds wild but the book speaks to much of what the session covered.</div>
+        </div>
+        <div class="reading-item">
+          <div class="r-title">Everything You Need to Know About Affairs<br><span style="font-weight:400;font-size:12px;color:var(--text-muted);">Nick Matiash</span></div>
+          <div class="r-desc">His own book on the affair loop mentioned in Q+A. He said he may remove it from Amazon, so check before relying on it being available.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">Q</div>
+        <div>
+          <h2 class="section-title">Comprehension Check</h2>
+          <p class="section-subtitle">Answer from memory first. Click an option to check.</p>
+        </div>
+      </div>
+      <p class="quiz-intro">Twelve questions covering the skill gap, the bomb model, trigger types, the six-second gap, the tools, the trigger map, the daily stack, and the Q+A answers.</p>
+
+      <div class="quiz-q" data-answer="B">
+        <span class="q-num">Question 1</span>
+        <p class="q-text">What is the core reframe about losing your cool in a marriage?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) It's a character flaw that willpower can fix</button>
+          <button class="opt" data-opt="B">B) It's a missing skill nobody taught, and a skill gap can be closed</button>
+          <button class="opt" data-opt="C">C) It's mostly caused by your wife's tone</button>
+          <button class="opt" data-opt="D">D) It only happens to men who are bad at their jobs</button>
+        </div>
+        <div class="q-result" data-explain="The whole session is built on this: not a character flaw, a gap you didn't ask for, and a gap can be closed."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="C">
+        <span class="q-num">Question 2</span>
+        <p class="q-text">In the bomb model, which part do most men actually notice?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) The trigger</button>
+          <button class="opt" data-opt="B">B) The build</button>
+          <button class="opt" data-opt="C">C) The reaction (the urge to fight or flee)</button>
+          <button class="opt" data-opt="D">D) The fuse</button>
+        </div>
+        <div class="q-result" data-explain="Most men only notice the reaction, not the spark or the build. That's why the work runs backwards: understand the trigger, lengthen the fuse, dismantle the bomb."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="D">
+        <span class="q-num">Question 3</span>
+        <p class="q-text">The same words from a stranger and from your wife land differently. Which trigger type is that?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) Situational</button>
+          <button class="opt" data-opt="B">B) Historical</button>
+          <button class="opt" data-opt="C">C) Physiological</button>
+          <button class="opt" data-opt="D">D) Relational</button>
+        </div>
+        <div class="q-result" data-explain="Relational is who said it. Situational is what happened, and historical is what it reminds you of."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="A">
+        <span class="q-num">Question 4</span>
+        <p class="q-text">Which is NOT one of his four common triggers for married men?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) Feeling ignored during sex</button>
+          <button class="opt" data-opt="B">B) Feeling disrespected</button>
+          <button class="opt" data-opt="C">C) Feeling controlled</button>
+          <button class="opt" data-opt="D">D) Feeling unappreciated</button>
+        </div>
+        <div class="q-result" data-explain="The four are feeling disrespected, controlled, like you're failing, and unappreciated."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="C">
+        <span class="q-num">Question 5</span>
+        <p class="q-text">What is the entire regulation game about, in his framing?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) Never feeling anger</button>
+          <button class="opt" data-opt="B">B) Winning the argument calmly</button>
+          <button class="opt" data-opt="C">C) Creating about six seconds of space between the trigger and your response</button>
+          <button class="opt" data-opt="D">D) Leaving the room whenever you're triggered</button>
+        </div>
+        <div class="q-result" data-explain="The six-second gap is about one deep breath, and it's where you get to choose a response instead of reacting."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="B">
+        <span class="q-num">Question 6</span>
+        <p class="q-text">According to the Frankl quote, where do growth and freedom live?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) In avoiding the stimulus</button>
+          <button class="opt" data-opt="B">B) In our response, chosen in the space between stimulus and response</button>
+          <button class="opt" data-opt="C">C) In winning the exchange</button>
+          <button class="opt" data-opt="D">D) In suppressing the emotion</button>
+        </div>
+        <div class="q-result" data-explain="Between stimulus and response there is a space. In that space is our power to choose our response, and in our response lies our growth and our freedom."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="D">
+        <span class="q-num">Question 7</span>
+        <p class="q-text">Which tool is described as two quick inhales followed by a slow exhale through the mouth, as if through a straw?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) Box breathing</button>
+          <button class="opt" data-opt="B">B) Grounding</button>
+          <button class="opt" data-opt="C">C) The transition ritual</button>
+          <button class="opt" data-opt="D">D) The physiological sigh</button>
+        </div>
+        <div class="q-result" data-explain="The physiological sigh is his Swiss Army knife. Box breathing is four counts in, hold, out, hold. Grounding uses your senses."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="A">
+        <span class="q-num">Question 8</span>
+        <p class="q-text">Which is NOT one of the six boxes on the trigger map?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) Attachment style</button>
+          <button class="opt" data-opt="B">B) Body signal</button>
+          <button class="opt" data-opt="C">C) Default reaction</button>
+          <button class="opt" data-opt="D">D) Commitment</button>
+        </div>
+        <div class="q-result" data-explain="The six boxes are situational trigger, relational trigger, historical trigger, body signal, default reaction and commitment."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="C">
+        <span class="q-num">Question 9</span>
+        <p class="q-text">What is the purpose of a transition ritual before walking in the door?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) To avoid your family for a few minutes</button>
+          <button class="opt" data-opt="B">B) To finish work emails</button>
+          <button class="opt" data-opt="C">C) To stop work bleeding into home and choose who you'll be there</button>
+          <button class="opt" data-opt="D">D) To rehearse arguments</button>
+        </div>
+        <div class="q-result" data-explain="Without a break between work-you and home-you, the stress comes in with you. A song or a quiet drive gives your nervous system a reset."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="B">
+        <span class="q-num">Question 10</span>
+        <p class="q-text">You feel wrongfully accused. Why does he say not to correct the facts straight away?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) Because she is usually right</button>
+          <button class="opt" data-opt="B">B) Because a brain that is emotionally up can't critically take in your facts, so absorb first and share your side after</button>
+          <button class="opt" data-opt="C">C) Because arguments never help</button>
+          <button class="opt" data-opt="D">D) Because you should always apologise first</button>
+        </div>
+        <div class="q-result" data-explain="It isn't a woman thing, it's a human thing. Let the emotion come down, ask her to tell you more, then ask if you can share your perspective."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="D">
+        <span class="q-num">Question 11</span>
+        <p class="q-text">When you go back to repair and your mind goes blank, what does he suggest you write down first?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) A list of her faults</button>
+          <button class="opt" data-opt="B">B) The exact timeline of the argument</button>
+          <button class="opt" data-opt="C">C) A list of apologies</button>
+          <button class="opt" data-opt="D">D) Three columns: Ownership, Impact, Changed action</button>
+        </div>
+        <div class="q-result" data-explain="Critical thinking goes offline when emotional, so you don't rely on it. Write what you own, the impact on her, and the changed action."></div>
+      </div>
+
+      <div class="quiz-q" data-answer="A">
+        <span class="q-num">Question 12</span>
+        <p class="q-text">How does he suggest practising the six-second pause?</p>
+        <div class="options">
+          <button class="opt" data-opt="A">A) In low-stakes moments, for example taking six seconds whenever anyone says your name</button>
+          <button class="opt" data-opt="B">B) Only during real arguments so it sticks</button>
+          <button class="opt" data-opt="C">C) Once a month in a meditation retreat</button>
+          <button class="opt" data-opt="D">D) By counting out loud while she talks</button>
+        </div>
+        <div class="q-result" data-explain="Practising only in hard conversations is like trying to hit a 100mph fastball before you've hit off the tee. Build reps where it doesn't matter."></div>
+      </div>
+
+    </section>
+
+    <footer class="site-footer">
+      <p>Better Man Recovery &middot; Private study reference &middot; Not for distribution</p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+document.querySelectorAll('.quiz-q').forEach(function(q) {
+  var answer = q.getAttribute('data-answer');
+  var result = q.querySelector('.q-result');
+  q.querySelectorAll('.opt').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (q.classList.contains('answered')) return;
+      q.classList.add('answered');
+      var chosen = btn.getAttribute('data-opt');
+      var explain = result.getAttribute('data-explain') || '';
+      q.querySelectorAll('.opt').forEach(function(b) {
+        b.disabled = true;
+        if (b.getAttribute('data-opt') === answer) b.classList.add('correct');
+      });
+      if (chosen === answer) {
+        result.textContent = 'Correct. ' + explain;
+        result.className = 'q-result show right';
+      } else {
+        btn.classList.add('incorrect');
+        result.textContent = 'Not quite. The answer is ' + answer + '. ' + explain;
+        result.className = 'q-result show wrong';
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
